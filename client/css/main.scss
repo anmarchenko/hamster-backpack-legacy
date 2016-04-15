@@ -1,0 +1,7 @@
+/* CSS declarations go here */
+li.checked {
+  font-weight: bold;
+  &:active {
+    font-weight: normal;
+  }
+}
