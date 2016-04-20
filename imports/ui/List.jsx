@@ -3,44 +3,39 @@ import React, { Component, PropTypes } from 'react';
 import TaskContainer from '../containers/TaskContainer.jsx';
 
 // List component - represents the task list
-class List extends Component {
-  constructor(props) {
-    super(props);
-  }
+function List(props) {
+  return (
+    <div className="container">
+      <header>
+        <h1>Todo List ({props.incompleteCount})</h1>
 
-  render() {
-    return (
-      <div className="container">
-        <header>
-          <h1>Todo List ({this.props.incompleteCount})</h1>
+        <label className="hide-completed">
+          <input
+            type="checkbox"
+            readOnly
+            checked={props.hideCompleted}
+            onClick={props.toggleHideCompleted}
+          />
+          Hide Completed Tasks
+        </label>
 
-          <label className="hide-completed">
-            <input
-              type="checkbox"
-              readOnly
-              checked={this.props.hideCompleted}
-              onClick={this.props.toggleHideCompleted}
-            />
-            Hide Completed Tasks
-          </label>
+        <form className="new-task" onSubmit={props.handleSubmit} >
+          <input
+            type="text"
+            placeholder="Type to add new tasks"
+            value={props.newTask}
+            onChange={props.handleInputChange}
+          />
+        </form>
+      </header>
 
-          <form className="new-task" onSubmit={this.props.handleSubmit} >
-            <input
-              type="text"
-              placeholder="Type to add new tasks"
-              value={this.props.newTask}
-              onChange={this.props.handleInputChange}
-            />
-          </form>
-        </header>
-
-        <ul>
-          {this.props.children}
-        </ul>
-      </div>
-    );
-  }
+      <ul>
+        {props.children}
+      </ul>
+    </div>
+  );
 }
+
 
 List.propTypes = {
   incompleteCount: PropTypes.number.isRequired,

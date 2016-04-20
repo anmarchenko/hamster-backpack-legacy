@@ -1,29 +1,27 @@
 import React, { Component, PropTypes } from 'react';
 
 // Task component - represents a single todo item
-export default class Task extends Component {
-  render() {
-    // Give tasks a different className when they are checked off,
-    // so that we can style them nicely in CSS
-    const taskClassName = this.props.taskChecked ? 'checked' : '';
+function Task(props) {
+  // Give tasks a different className when they are checked off,
+  // so that we can style them nicely in CSS
+  const taskClassName = props.taskChecked ? 'checked' : '';
 
-    return (
-      <li className={taskClassName}>
-        <button className="delete" onClick={this.props.deleteTask}>
-          &times;
-        </button>
+  return (
+    <li className={taskClassName}>
+      <button className="delete" onClick={props.deleteTask}>
+        &times;
+      </button>
 
-        <input
-          type="checkbox"
-          readOnly
-          checked={this.props.taskChecked || false}
-          onClick={this.props.checkTask}
-        />
+      <input
+        type="checkbox"
+        readOnly
+        checked={props.taskChecked || false}
+        onClick={props.checkTask}
+      />
 
-        <span className="text">{this.props.taskText}</span>
-      </li>
-    );
-  }
+      <span className="text">{props.taskText}</span>
+    </li>
+  );
 }
 
 Task.propTypes = {
@@ -32,3 +30,5 @@ Task.propTypes = {
   checkTask: PropTypes.func.isRequired,
   deleteTask: PropTypes.func.isRequired
 };
+
+export default Task;
