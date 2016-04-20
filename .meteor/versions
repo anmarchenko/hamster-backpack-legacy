@@ -5,7 +5,6 @@ babel-runtime@0.1.7
 base64@1.0.7
 binary-heap@1.0.7
 blaze@2.1.6
-blaze-html-templates@1.0.3
 blaze-tools@1.0.7
 boilerplate-generator@1.0.7
 caching-compiler@1.0.3
@@ -59,7 +58,7 @@ seba:minifiers-autoprefixer@1.0.1
 spacebars@1.0.10
 spacebars-compiler@1.0.10
 standard-minifier-js@1.0.5
-templating@1.1.8
+static-html@1.0.6
 templating-tools@1.0.3
 tmeasday:check-npm-versions@0.2.0
 tracker@1.0.12

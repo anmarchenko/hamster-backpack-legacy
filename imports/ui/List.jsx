@@ -6,8 +6,8 @@ import { Tasks } from '../api/tasks.js';
 
 import Task from './Task.jsx';
 
-// App component - represents the whole app
-class App extends Component {
+// List component - represents the list
+class List extends Component {
   constructor(props) {
     super(props);
 
@@ -77,7 +77,7 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
+List.propTypes = {
   tasks: PropTypes.array.isRequired,
   incompleteCount: PropTypes.number.isRequired,
 };
@@ -88,4 +88,4 @@ export default createContainer(() => {
     tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
     incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
   };
-}, App);
+}, List);
