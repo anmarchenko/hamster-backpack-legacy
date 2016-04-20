@@ -1,47 +1,11 @@
 import React, { Component, PropTypes } from 'react';
-import { createContainer } from 'meteor/react-meteor-data';
-import ReactDOM from 'react-dom';
 
-import { Tasks } from '../api/tasks.js';
+import TaskContainer from '../containers/TaskContainer.jsx';
 
-import Task from './Task.jsx';
-
-// List component - represents the list
+// List component - represents the task list
 class List extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      hideCompleted: false,
-    };
-  }
-
-  renderTasks() {
-    let filteredTasks = this.props.tasks;
-    if (this.state.hideCompleted) {
-      filteredTasks = filteredTasks.filter(task => !task.checked);
-    }
-    return filteredTasks.map((task) => (
-      <Task key={task._id} task={task} />
-    ));
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-
-    // TODO: Find the text field via the React ref - BAD WAY!!!!!! Use state instead!!!!!!!!!!!
-    const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
-
-    Meteor.call('tasks.insert', text);
-
-    // TODO:  Clear form - BAD WAY!!!!!! Use state instead!!!!!!!!!!!
-    ReactDOM.findDOMNode(this.refs.textInput).value = '';
-  }
-
-  toggleHideCompleted() {
-    this.setState({
-      hideCompleted: !this.state.hideCompleted,
-    });
   }
 
   render() {
@@ -54,23 +18,24 @@ class List extends Component {
             <input
               type="checkbox"
               readOnly
-              checked={this.state.hideCompleted}
-              onClick={this.toggleHideCompleted.bind(this)}
+              checked={this.props.hideCompleted}
+              onClick={this.props.toggleHideCompleted}
             />
             Hide Completed Tasks
           </label>
 
-          <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
+          <form className="new-task" onSubmit={this.props.handleSubmit} >
             <input
               type="text"
-              ref="textInput"
               placeholder="Type to add new tasks"
+              value={this.props.newTask}
+              onChange={this.props.handleInputChange}
             />
           </form>
         </header>
 
         <ul>
-          {this.renderTasks()}
+          {this.props.children}
         </ul>
       </div>
     );
@@ -78,14 +43,13 @@ class List extends Component {
 }
 
 List.propTypes = {
-  tasks: PropTypes.array.isRequired,
   incompleteCount: PropTypes.number.isRequired,
+  newTask: PropTypes.string.isRequired,
+  hideCompleted: PropTypes.bool.isRequired,
+
+  toggleHideCompleted: PropTypes.func.isRequired,
+  handleInputChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired
 };
 
-export default createContainer(() => {
-  Meteor.subscribe('tasks');
-  return {
-    tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
-  };
-}, List);
+export default List;

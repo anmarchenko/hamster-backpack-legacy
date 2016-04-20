@@ -1,43 +1,34 @@
 import React, { Component, PropTypes } from 'react';
-import { Tasks } from '../api/tasks.js';
 
 // Task component - represents a single todo item
 export default class Task extends Component {
-  toggleChecked() {
-    // Set the checked property to the opposite of its current value
-    Meteor.call('tasks.setChecked', this.props.task._id, !this.props.task.checked);
-  }
-
-  deleteThisTask() {
-    Meteor.call('tasks.remove', this.props.task._id);
-  }
-
   render() {
     // Give tasks a different className when they are checked off,
     // so that we can style them nicely in CSS
-    const taskClassName = this.props.task.checked ? 'checked' : '';
+    const taskClassName = this.props.taskChecked ? 'checked' : '';
 
     return (
       <li className={taskClassName}>
-        <button className="delete" onClick={this.deleteThisTask.bind(this)}>
+        <button className="delete" onClick={this.props.deleteTask}>
           &times;
         </button>
 
         <input
           type="checkbox"
           readOnly
-          checked={this.props.task.checked || false}
-          onClick={this.toggleChecked.bind(this)}
+          checked={this.props.taskChecked || false}
+          onClick={this.props.checkTask}
         />
 
-        <span className="text">{this.props.task.text}</span>
+        <span className="text">{this.props.taskText}</span>
       </li>
     );
   }
 }
 
 Task.propTypes = {
-  // This component gets the task to display through a React prop.
-  // We can use propTypes to indicate it is required
-  task: PropTypes.object.isRequired,
+  taskText: PropTypes.string.isRequired,
+  taskChecked: PropTypes.bool,
+  checkTask: PropTypes.func.isRequired,
+  deleteTask: PropTypes.func.isRequired
 };
