@@ -1,4 +1,20 @@
 /* CSS declarations go here */
+
+// primary colors
+$dark-primary: #E64A19;
+$default-primary: #FF5722;
+$light-primary: #FFCCBC;
+// text on primary background
+$text-contrast: #FFFFFF;
+
+$cta: #448AFF;
+
+$primary-text: #212121;
+$secondary-text: #727272; 
+
+$borders: #B6B6B6;
+
+
 li.checked {
   font-weight: bold;
   &:active {

@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
+import { Tasks } from '../api/tasks.js';
+
 import Task from '../ui/Task.jsx'
 
 // Task component - represents a single todo item
