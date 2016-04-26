@@ -8,32 +8,47 @@ function Landing(props) {
         <div className="four columns usage-step">
           <img className="usage-image" src="/images/checklist.svg"></img>
           <div className="usage-text">
-            Create list of things to pack
+            <p>
+              Create list of things to pack
+            </p>
           </div>
           <div className="usage-text-secondary">
-            Give us some information about your trip and we will generate packing
-            to-do list for you.
+            <p>
+              Give us some information about your trip and we will generate packing
+              to-do list for you.
+            </p>
           </div>
         </div>
         <div className="four columns usage-step">
           <img className="usage-image" src="/images/checked.svg"></img>
             <div className="usage-text">
-              Start packing stuff
+              <p>
+                Start packing stuff
+              </p>
             </div>
             <div className="usage-text-secondary">
-              Check stuff you already packed, delete what is not needed, add some
-              new things to pack.
+              <p>
+                Check stuff you already packed, delete what is not needed, add some
+                new things to pack.
+              </p>
             </div>
         </div>
         <div className="four columns usage-step">
           <img className="usage-image" src="/images/backpack.svg"></img>
             <div className="usage-text">
-              Enjoy your trip!
+              <p>
+                Enjoy your trip!
+              </p>
             </div>
             <div className="usage-text-secondary">
-              Grab your backpack and go on with your adventure.
+              <p>
+                Grab your backpack and go on with your adventure.
+              </p>
             </div>
         </div>
+      </div>
+      <div className="row">
+
       </div>
     </div>
   );

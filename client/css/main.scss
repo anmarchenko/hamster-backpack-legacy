@@ -15,8 +15,6 @@ $secondary-text: #727272;
 $borders: #B6B6B6;
 
 body {
-  font-size: 1.5em;
-  line-height: 1.6;
   color: $primary-text;
 }
 
@@ -78,7 +76,6 @@ li.checked {
     }
     .usage-text-secondary {
       color: $secondary-text;
-      margin-top: 1rem;
     }
   }
 }
