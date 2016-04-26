@@ -3,7 +3,9 @@ import React, { Component, PropTypes } from 'react';
 // Landing page with CTA button
 function Landing(props) {
   return (
-    <b>This is landing page for Hamster's Backback</b>
+    <div className="landing">
+      This is the landing page for Hamster's Backback
+    </div>
   );
 }
 
