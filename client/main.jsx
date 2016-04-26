@@ -1,9 +1,18 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
+import { Router, Route, browserHistory } from 'react-router';
 
-import ListContainer from '../imports/containers/ListContainer.jsx';
+import Landing from '../imports/ui/Landing.jsx'
+import ListContainer from '../imports/containers/ListContainer.jsx'
+
+renderRoutes = () => (
+  <Router history={browserHistory}>
+    <Route path="/" component={Landing} />
+    <Route path="/old_todos" component={ListContainer} />
+  </Router>
+);
 
 Meteor.startup(() => {
-  render(<ListContainer />, document.getElementById('render-target'));
+  render(renderRoutes(), document.getElementById('hamsters-backpack-app'));
 });
