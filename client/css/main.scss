@@ -79,3 +79,17 @@ li.checked {
     }
   }
 }
+
+.cta-row {
+  text-align: center;
+}
+
+button.button-primary {
+  background-color: $cta;
+  border-color: $cta;
+
+  &:hover, &:active, &:focus {
+    background-color: darken($cta, 30%);
+    border-color: darken($cta, 30%);
+  }
+}
