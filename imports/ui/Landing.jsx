@@ -1,69 +1,85 @@
 import React, { Component, PropTypes } from 'react';
 
+import { I18n } from 'react-i18nify';
+import { Translate } from 'react-i18nify';
+
+import NavbarContainer from '../containers/NavbarContainer.jsx';
+
 // Landing page with CTA button
 export default class Landing extends Component {
-  openForm() {
-     this.context.router.push('/new');
+  componentWillMount() {
+    I18n.setLocale(this.props.routeParams.locale);
   }
+
+  openForm() {
+     this.context.router.push('/' + this.props.routeParams.locale + '/new');
+  }
+
   render(){
     return (
-      <div className="landing">
-        <div className="row usage-steps">
-          <div className="four columns usage-step">
-            <img className="usage-image" src="/images/checklist.svg"></img>
-            <div className="usage-text">
-              <p>
-                Create list of things to pack
-              </p>
+      <span>
+        <NavbarContainer />
+
+        <div className="container">
+          <div className="landing">
+            <div className="row usage-steps">
+              <div className="four columns usage-step">
+                <img className="usage-image" src="/images/checklist.svg"></img>
+                <div className="usage-text">
+                  <p>
+                    <Translate value="landing.step1_header"/>
+                  </p>
+                </div>
+                <div className="usage-text-secondary">
+                  <p>
+                    <Translate value="landing.step1_text"/>
+                  </p>
+                </div>
+              </div>
+              <div className="four columns usage-step">
+                <img className="usage-image" src="/images/checked.svg"></img>
+                  <div className="usage-text">
+                    <p>
+                      <Translate value="landing.step2_header"/>
+                    </p>
+                  </div>
+                  <div className="usage-text-secondary">
+                    <p>
+                      <Translate value="landing.step2_text"/>
+                    </p>
+                  </div>
+              </div>
+              <div className="four columns usage-step">
+                <img className="usage-image" src="/images/backpack.svg"></img>
+                  <div className="usage-text">
+                    <p>
+                      <Translate value="landing.step3_header"/>
+                    </p>
+                  </div>
+                  <div className="usage-text-secondary">
+                    <p>
+                      <Translate value="landing.step3_text"/>
+                    </p>
+                  </div>
+              </div>
             </div>
-            <div className="usage-text-secondary">
-              <p>
-                Give us some information about your trip and we will generate packing
-                to-do list for you.
-              </p>
+            <div className="row cta-row">
+              <div className="twelve columns">
+                <button className="button-primary" onClick={this.openForm.bind(this)}>
+                  <Translate value="landing.start_button"/>
+                </button>
+              </div>
             </div>
-          </div>
-          <div className="four columns usage-step">
-            <img className="usage-image" src="/images/checked.svg"></img>
-              <div className="usage-text">
-                <p>
-                  Start packing stuff
-                </p>
-              </div>
-              <div className="usage-text-secondary">
-                <p>
-                  Check stuff you already packed, delete what is not needed, add some
-                  new things to pack.
-                </p>
-              </div>
-          </div>
-          <div className="four columns usage-step">
-            <img className="usage-image" src="/images/backpack.svg"></img>
-              <div className="usage-text">
-                <p>
-                  Enjoy your trip!
-                </p>
-              </div>
-              <div className="usage-text-secondary">
-                <p>
-                  Grab your backpack and go on with your adventure.
-                </p>
-              </div>
           </div>
         </div>
-        <div className="row cta-row">
-          <div className="twelve columns">
-            <button className="button-primary" onClick={this.openForm.bind(this)}>Let's start</button>
-          </div>
-        </div>
-      </div>
+      </span>
     );
   }
 }
 
 Landing.contextTypes = {
-    router: React.PropTypes.object.isRequired
-  };
+  router: React.PropTypes.object.isRequired
+};
 
 
 export default Landing;
