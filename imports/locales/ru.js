@@ -9,6 +9,5 @@ export default RU_LOCALE = {
     start_button: 'Поехали!'
   },
   new_form: {
-    placeholder: 'Здесь будет форма!!!!'
   }
 };

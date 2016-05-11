@@ -1,9 +1,9 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react'
 
-import { I18n } from 'react-i18nify';
-import { Translate } from 'react-i18nify';
+import { I18n } from 'react-i18nify'
+import { Translate } from 'react-i18nify'
 
-import NavbarContainer from '../containers/NavbarContainer.jsx';
+import NavbarContainer from '../containers/NavbarContainer.jsx'
 
 // Landing page with CTA button
 export default class Landing extends Component {

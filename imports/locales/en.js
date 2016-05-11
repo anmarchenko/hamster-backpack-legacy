@@ -9,6 +9,5 @@ export default EN_LOCALE = {
     start_button: 'Let\'s start'
   },
   new_form: {
-    placeholder: 'There will be form!!!!!!!'
   }
 };

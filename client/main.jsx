@@ -1,11 +1,12 @@
-import React from 'react';
-import { Meteor } from 'meteor/meteor';
-import { render } from 'react-dom';
-import { Router, Route, browserHistory, Redirect } from 'react-router';
+import React from 'react'
+import { render } from 'react-dom'
+import { Router, Route, browserHistory, Redirect } from 'react-router'
 
-import { I18n } from 'react-i18nify';
-import EN_LOCALE from '../imports/locales/en.js';
-import RU_LOCALE from '../imports/locales/ru.js';
+import { Meteor } from 'meteor/meteor'
+
+import { I18n } from 'react-i18nify'
+import EN_LOCALE from '../imports/locales/en.js'
+import RU_LOCALE from '../imports/locales/ru.js'
 
 import Landing from '../imports/ui/Landing.jsx'
 import ListContainer from '../imports/containers/ListContainer.jsx'
