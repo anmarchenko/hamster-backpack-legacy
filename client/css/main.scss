@@ -18,6 +18,15 @@ body {
   color: $primary-text;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 li.checked {
   font-weight: bold;
   &:active {
@@ -92,4 +101,8 @@ button.button-primary {
     background-color: darken($cta, 30%);
     border-color: darken($cta, 30%);
   }
+}
+
+.trip-form-background {
+  background-color: $light-primary;
 }

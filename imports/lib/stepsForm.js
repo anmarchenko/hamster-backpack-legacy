@@ -65,10 +65,14 @@ stepsForm.prototype._init = function() {
 	this.totalQuestionNum.innerHTML = this.questionsCount;
 
 	// error message
-	this.error = this.el.querySelector( 'span.error-message' );
+	this.error = this.el.querySelector( 'span.error-message.empty' );
+	this.error_number = this.el.querySelector( 'span.error-message.number-error' );
 
 	// init events
 	this._initEvents();
+
+	//focus on first question
+	this.questions[ this.current ].querySelector( 'input' ).focus();
 };
 
 stepsForm.prototype._initEvents = function() {
@@ -189,41 +193,48 @@ stepsForm.prototype._updateQuestionNumber = function() {
 
 // submits the form
 stepsForm.prototype._submit = function() {
+	// hide form
+	classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
+
 	this.options.onSubmit( this.el );
 };
 
-// TODO (next version..)
 // the validation function
 stepsForm.prototype._validade = function() {
 	// current question´s input
-	var input = this.questions[ this.current ].querySelector( 'input' ).value;
-	if( input === '' ) {
-		this._showError( 'EMPTYSTR' );
+	var el = this.questions[ this.current ].querySelector( 'input' );
+	var input_value = el.value;
+	if( input_value === '' ) {
+		this._showError( 'empty' );
 		return false;
+	}
+
+	if (el.type === 'number') {
+		input_num = Number.parseInt(input_value);
+		min = Number.parseInt(el.min);
+		if (input_value < min){
+			this._showError( 'number' );
+			return false;
+		}
 	}
 
 	return true;
 };
 
-// TODO (next version..)
 stepsForm.prototype._showError = function( err ) {
-	var message = '';
-	switch( err ) {
-		case 'EMPTYSTR' :
-			message = 'Please fill the field before continuing';
-			break;
-		case 'INVALIDEMAIL' :
-			message = 'Please fill a valid email address';
-			break;
-		// ...
+	this._clearError();
+	if(err === 'empty'){
+		classie.addClass( this.error, 'show' );
 	}
-	this.error.innerHTML = message;
-	classie.addClass( this.error, 'show' );
+	if(err === 'number'){
+		classie.addClass( this.error_number, 'show' );
+	}
 };
 
 // clears/hides the current error message
 stepsForm.prototype._clearError = function() {
 	classie.removeClass( this.error, 'show' );
+	classie.removeClass( this.error_number, 'show' );
 };
 
 // add to global namespace

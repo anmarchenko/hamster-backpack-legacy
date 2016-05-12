@@ -102,7 +102,7 @@
 	transition: opacity 0.3s;
 }
 
-.questions .current input[type="text"] {
+.questions .current input[type="text"], .questions .current input[type="number"] {
 	opacity: 1;
 	height: inherit;
 	border-radius: inherit;
@@ -110,10 +110,8 @@
 	box-sizing: inherit;
 }
 
-.questions button {
-}
-
 .questions input[type="text"]:focus,
+.questions input[type="number"]:focus,
 .simform button:focus {
 	outline: none;
 	border: none;

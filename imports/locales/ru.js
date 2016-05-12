@@ -9,5 +9,10 @@ export default RU_LOCALE = {
     start_button: 'Поехали!'
   },
   new_form: {
+    name_label: 'Как назовем путешествие?',
+    days_label: 'Сколько дней продлится поездка?',
+    nights_label: 'А ночей?..',
+    error: 'Пожалуйста заполните поле, это важно',
+    error_number: 'Число должно быть не отрицательным!'
   }
 };
