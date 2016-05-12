@@ -53,7 +53,7 @@ export default class TripFormContainer extends Component {
     return (
       <div>
         <NavbarContainer />
-        <TripForm fieldChangeHandler={this.fieldChanged.bind(this)} nights_count={this.state.nights} />
+        <TripForm fieldChangeHandler={this.fieldChanged.bind(this)} nightsCount={this.state.nights} />
       </div>
     )
   }

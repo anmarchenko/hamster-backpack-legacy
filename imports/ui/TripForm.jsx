@@ -16,7 +16,7 @@ TripForm = (props) => (
           </li>
           <li>
             <span><label for="nights"><Translate value="new_form.nights_label" /></label></span>
-            <input id="nights" name="nights" type="number" min="0" onChange={props.fieldChangeHandler} value={props.nights_count || ''} />
+            <input id="nights" name="nights" type="number" min="0" onChange={props.fieldChangeHandler} value={props.nightsCount || ''} />
           </li>
         </ol>
         <div className="controls">
@@ -40,7 +40,7 @@ TripForm = (props) => (
 
 TripForm.propTypes = {
   fieldChangeHandler: PropTypes.func.isRequired,
-  nights_count: PropTypes.number
+  nightsCount: PropTypes.number
 }
 
 export default TripForm
