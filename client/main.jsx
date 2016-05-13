@@ -9,15 +9,15 @@ import EN_LOCALE from '../imports/locales/en.js'
 import RU_LOCALE from '../imports/locales/ru.js'
 
 import Landing from '../imports/ui/Landing.jsx'
-import ListContainer from '../imports/containers/ListContainer.jsx'
 import TripFormContainer from '../imports/containers/TripFormContainer.jsx'
+import TripContainer from '../imports/containers/TripContainer.jsx'
 
 renderRoutes = () => (
   <Router history={browserHistory}>
     <Redirect from="/" to="/en" />
     <Route path="/:locale" component={Landing} />
     <Route path="/:locale/new" component={TripFormContainer} />
-    <Route path="/:locale/old_todos" component={ListContainer} />
+    <Route path="/:locale/trips/:trip_id" component={TripContainer} />
   </Router>
 );
 

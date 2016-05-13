@@ -46,7 +46,19 @@ export default class TripFormContainer extends Component {
   }
 
   formSubmitted() {
-    console.log(this.state)
+    Meteor.call('trips.create',
+      this.state.name,
+      Number.parseInt(this.state.days),
+      Number.parseInt(this.state.nights),
+      (error, result) => {
+        if (error) {
+          console.log(error);
+          this.context.router.push('/' + this.props.routeParams.locale);
+        } else {
+          this.context.router.push('/' + this.props.routeParams.locale + '/trips/' + result);
+        }
+      }
+    )
   }
 
   render() {
