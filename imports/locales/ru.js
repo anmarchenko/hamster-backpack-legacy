@@ -14,5 +14,20 @@ export default RU_LOCALE = {
     nights_label: 'А ночей?..',
     error: 'Пожалуйста заполните поле, это важно',
     error_number: 'Число должно быть не отрицательным!'
+  },
+  templates: {
+    lists: {
+      hygiene: 'Бытовая химия/средства личной гигиены',
+      stuff: 'С собой'
+    },
+    items: {
+      gel: 'Гель для рук',
+      hygiene_tissues: 'Влажные салфетки',
+
+      passport: 'Паспорта',
+      money: 'Деньги и кредитка',
+      insurance: 'Страховки'
+    }
   }
+
 };

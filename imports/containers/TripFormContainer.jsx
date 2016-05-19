@@ -50,6 +50,7 @@ export default class TripFormContainer extends Component {
       this.state.name,
       Number.parseInt(this.state.days),
       Number.parseInt(this.state.nights),
+      this.props.routeParams.locale,
       (error, result) => {
         if (error) {
           console.log(error);

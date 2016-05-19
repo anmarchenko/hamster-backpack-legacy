@@ -4,6 +4,7 @@ import { Translate } from 'react-i18nify'
 Trip = (props) => (
   <div className="container">
     <h1>{props.tripName}</h1>
+    {props.children}
   </div>
 )
 

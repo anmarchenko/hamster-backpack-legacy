@@ -14,5 +14,19 @@ export default EN_LOCALE = {
     nights_label: 'And nights?..',
     error: 'Please fill out this field, it is important',
     error_number: 'This number seems wrong... Should be not negative'
+  },
+  templates: {
+    lists: {
+      hygiene: 'Personal hygiene',
+      stuff: 'Docs and necessary things'
+    },
+    items: {
+      gel: 'Desinfection gel for hands',
+      hygiene_tissues: 'Desinfection tissues',
+
+      passport: 'Passport',
+      money: 'Money and credit cards',
+      insurance: 'Travel insurance'
+    }
   }
 };

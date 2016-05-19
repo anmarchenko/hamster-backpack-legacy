@@ -1,24 +1,32 @@
-export default BasicTemplate = {
-  list1: {
-      name: 'list1',
+export default BasicTemplate = [
+  {
+      label: 'hygiene',
       items: [
             {
-              label: 'thing1',
-              count: '2'
+              label: 'gel',
+              count: 2
             },
             {
-              label: 'thing2',
-              count: '2*[days]'
+              label: 'hygiene_tissues',
+              count: '2/[days]'
             },
         ]
   },
-  list2: {
-    name: 'list2',
+  {
+    label: 'stuff',
     items: [
       {
-        label: 'thing3',
-        count: 5
+        label: 'passport',
+        count: 2
+      },
+      {
+        label: 'money',
+        count: 1
+      },
+      {
+        label: 'insurance',
+        count: 2
       }
     ]
   }
-};
+];
