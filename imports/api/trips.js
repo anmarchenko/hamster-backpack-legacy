@@ -24,6 +24,7 @@ Meteor.methods({
           count = item.count;
         } else {
           count = item.count.replace('[days]', days);
+          count = count.replace('[nights]', nights);
           count = Math.floor(eval(item.count));
         }
         Items.insert({
