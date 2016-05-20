@@ -1,4 +1,5 @@
 import '../imports/api/trips.js';
+import { Trips, Lists, Items } from '../imports/api/collections.js';
 
 // server I18n
 import { I18n } from 'react-i18nify';

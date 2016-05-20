@@ -22,10 +22,10 @@ Meteor.methods({
       var list_id = Lists.insert({ trip_id: new_trip_id, name: I18n.t('templates.lists.' + list.label) });
       for (var item of list.items) {
         var count = item.count;
-        if (isString(item.count)){
-          count = item.count.replace('[days]', days);
+        if (isString(count)){
+          count = count.replace('[days]', days);
           count = count.replace('[nights]', nights);
-          count = math.floor(math.eval(item.count));
+          count = math.floor(math.eval(count));
         }
         Items.insert({
           trip_id: new_trip_id,
