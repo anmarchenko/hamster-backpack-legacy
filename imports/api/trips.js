@@ -24,11 +24,15 @@ Meteor.methods({
           count = item.count;
         } else {
           count = item.count.replace('[days]', days);
-          count = eval(item.count);
+          count = Math.floor(eval(item.count));
         }
-        Items.insert({ trip_id: new_trip_id, list_id: list_id, checked: false,
+        Items.insert({
+          trip_id: new_trip_id,
+          list_id: list_id,
+          checked: false,
           count: count,
-          name: I18n.t('templates.items.' + item.label) });
+          name: I18n.t('templates.items.' + item.label)
+        });
       }
     }
 
@@ -46,7 +50,7 @@ if (Meteor.isServer) {
     return Lists.find( {trip_id: trip_id} );
   });
 
-  Meteor.publish('items.by_trip_id', function itemsByTripIdPublication(trip_id) {
-    return Items.find( {trip_id: trip_id} );
+  Meteor.publish('items.by_list_id', function itemsByListIdPublication(list_id) {
+    return Items.find( {list_id: list_id} );
   });
 }
