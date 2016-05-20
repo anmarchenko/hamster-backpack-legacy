@@ -25,7 +25,7 @@ Meteor.methods({
         if (isString(item.count)){
           count = item.count.replace('[days]', days);
           count = count.replace('[nights]', nights);
-          count = Math.floor(math.eval(item.count));
+          count = math.floor(math.eval(item.count));
         }
         Items.insert({
           trip_id: new_trip_id,
