@@ -39,18 +39,3 @@ Meteor.methods({
     return new_trip_id;
   }
 });
-
-if (Meteor.isServer) {
-  // This code only runs on the server
-  Meteor.publish('trips.by_id', function tripsByIdPublication(trip_id) {
-    return Trips.find( { _id: trip_id } );
-  });
-
-  Meteor.publish('lists.by_trip_id', function listsByTripIdPublication(trip_id) {
-    return Lists.find( {trip_id: trip_id} );
-  });
-
-  Meteor.publish('items.by_list_id', function itemsByListIdPublication(list_id) {
-    return Items.find( {list_id: list_id} );
-  });
-}
