@@ -1,4 +1,3 @@
-import '../imports/api/tasks.js';
 import '../imports/api/trips.js';
 
 // server I18n
