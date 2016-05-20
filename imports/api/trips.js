@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { I18n } from 'react-i18nify';
+import isString from 'is-string';
 
 import { Trips, Lists, Items } from './collections.js';
 
@@ -19,10 +20,8 @@ Meteor.methods({
     for (var list of BasicTemplate) {
       var list_id = Lists.insert({ trip_id: new_trip_id, name: I18n.t('templates.lists.' + list.label) });
       for (var item of list.items) {
-        var count = 0;
-        if (typeof item.count === "number"){
-          count = item.count;
-        } else {
+        var count = item.count;
+        if (isString(item.count)){
           count = item.count.replace('[days]', days);
           count = count.replace('[nights]', nights);
           count = Math.floor(eval(item.count));
