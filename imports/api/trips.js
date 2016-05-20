@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { I18n } from 'react-i18nify';
 import isString from 'is-string';
+import math from 'mathjs';
 
 import { Trips, Lists, Items } from './collections.js';
 
@@ -24,7 +25,7 @@ Meteor.methods({
         if (isString(item.count)){
           count = item.count.replace('[days]', days);
           count = count.replace('[nights]', nights);
-          count = Math.floor(eval(item.count));
+          count = Math.floor(math.eval(item.count));
         }
         Items.insert({
           trip_id: new_trip_id,
