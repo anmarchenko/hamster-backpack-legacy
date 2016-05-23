@@ -3,9 +3,10 @@ import { I18n } from 'react-i18nify'
 import { createContainer } from 'meteor/react-meteor-data';
 
 import Trip from '../ui/Trip.jsx'
-import NavbarContainer from '../containers/NavbarContainer.jsx'
+import ListContainer from './ListContainer.jsx'
+import NavbarContainer from './NavbarContainer.jsx'
 
-import { Trips, Lists, Items } from '../api/collections.js';
+import { Trips, Lists } from '../api/collections.js';
 
 class TripContainer extends Component {
   constructor(props) {
@@ -22,11 +23,9 @@ class TripContainer extends Component {
       <div>
         {this.props.lists.map( function(list){
           return (
-            <div key={list._id}>
-              <p>{list.name}</p>
-            </div>
+            <ListContainer key={list._id} list={list} />
           )
-        }.bind(this))
+        })
         }
       </div>
     )
@@ -45,7 +44,8 @@ class TripContainer extends Component {
 }
 
 TripContainer.propTypes = {
-  trip: PropTypes.object
+  trip: PropTypes.object,
+  lists: PropTypes.array
 };
 
 TripContainer.contextTypes = {
@@ -55,6 +55,7 @@ TripContainer.contextTypes = {
 export default createContainer(({ params }) => {
   Meteor.subscribe('trips.by_id', params.trip_id);
   Meteor.subscribe('lists.by_trip_id', params.trip_id);
+  Meteor.subscribe('items.by_trip_id', params.trip_id);
   return {
     trip: Trips.findOne(params.trip_id) || {},
     lists: Lists.find().fetch()
