@@ -3,6 +3,7 @@ import { I18n } from 'react-i18nify'
 import { createContainer } from 'meteor/react-meteor-data';
 
 import List from '../ui/List.jsx'
+import ItemContainer from './ItemContainer.jsx'
 
 import { Items } from '../api/collections.js';
 
@@ -20,7 +21,7 @@ class ListContainer extends Component {
       <div>
         {this.props.items.map(function(item){
           return (
-            <i key={item._id}>{item.name}<br></br></i>
+            <ItemContainer key={item._id} item={item} />
           )
         })}
       </div>
