@@ -1,12 +1,6 @@
-import {
-  Meteor
-} from 'meteor/meteor';
-import {
-  check
-} from 'meteor/check';
-import {
-  I18n
-} from 'react-i18nify';
+import { Meteor } from 'meteor/meteor';
+import { check } from 'meteor/check';
+import { I18n } from 'react-i18nify';
 import isString from 'is-string';
 import math from 'mathjs';
 
