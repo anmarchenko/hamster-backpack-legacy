@@ -1,5 +1,4 @@
-import React, {Component, PropTypes} from 'react';
-import {Translate} from 'react-i18nify';
+import React, {PropTypes} from 'react';
 
 const Trip = (props) => (
   <div className="container trip">
@@ -9,7 +8,8 @@ const Trip = (props) => (
 );
 
 Trip.propTypes = {
-  tripName: PropTypes.string.isRequired
+  tripName: PropTypes.string.isRequired,
+  children: PropTypes.object
 };
 
 export default Trip;

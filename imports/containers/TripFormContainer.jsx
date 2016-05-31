@@ -1,10 +1,10 @@
-import React, { Component, PropTypes } from 'react'
-import { I18n } from 'react-i18nify'
+import React, { Component, PropTypes } from 'react';
+import { I18n } from 'react-i18nify';
 
-import TripForm from '../ui/TripForm.jsx'
-import NavbarContainer from '../containers/NavbarContainer.jsx'
+import TripForm from '../ui/TripForm.jsx';
+import NavbarContainer from '../containers/NavbarContainer.jsx';
 
-import stepsForm from '../lib/stepsForm.js'
+import stepsForm from '../lib/stepsForm.js';
 
 export default class TripFormContainer extends Component {
   constructor(props) {
@@ -36,11 +36,11 @@ export default class TripFormContainer extends Component {
   }
 
   fieldChanged(event) {
-    stateChange = {}
+    const stateChange = {}
     stateChange[event.target.name] = event.target.value
     if (event.target.name === 'days') {
-      num_days = Number.parseInt(event.target.value);
-      stateChange.nights = num_days - 1;
+      const numDays = Number.parseInt(event.target.value);
+      stateChange.nights = numDays - 1;
     }
     this.setState(stateChange)
   }
@@ -53,10 +53,10 @@ export default class TripFormContainer extends Component {
       this.props.routeParams.locale,
       (error, result) => {
         if (error) {
-          console.log(error);
-          this.context.router.push('/' + this.props.routeParams.locale);
+          window.console.log(error);
+          this.context.router.push(`/${this.props.routeParams.locale}`);
         } else {
-          this.context.router.push('/' + this.props.routeParams.locale + '/trips/' + result);
+          this.context.router.push(`/${this.props.routeParams.locale}/trips/${result}`);
         }
       }
     )
@@ -72,8 +72,10 @@ export default class TripFormContainer extends Component {
   }
 }
 
-TripFormContainer.propTypes = {}
+TripFormContainer.propTypes = {
+  routeParams: PropTypes.object
+};
 
 TripFormContainer.contextTypes = {
   router: React.PropTypes.object.isRequired
-}
+};

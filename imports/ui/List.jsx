@@ -1,5 +1,4 @@
-import React, {Component, PropTypes} from 'react';
-import {Translate} from 'react-i18nify';
+import React, { PropTypes } from 'react';
 
 const List = (props) => (
   <div className="tasks-list">
@@ -13,7 +12,8 @@ const List = (props) => (
 )
 
 List.propTypes = {
-  name: PropTypes.string.isRequired
+  name: PropTypes.string.isRequired,
+  children: PropTypes.object
 };
 
 export default List;

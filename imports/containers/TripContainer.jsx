@@ -43,7 +43,8 @@ class TripContainer extends Component {
 
 TripContainer.propTypes = {
   trip: PropTypes.object,
-  lists: PropTypes.array
+  lists: PropTypes.array,
+  routeParams: PropTypes.object
 };
 
 TripContainer.contextTypes = {

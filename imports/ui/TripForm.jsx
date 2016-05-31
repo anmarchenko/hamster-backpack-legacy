@@ -1,21 +1,21 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import { Translate } from 'react-i18nify'
 
-TripForm = (props) => (
+const TripForm = (props) => (
   <div className="container trip-form">
-    <form id="theForm" className="simform" autocomplete="off">
+    <form id="theForm" className="simform" autoComplete="off">
       <div className="simform-inner">
         <ol className="questions">
           <li>
-            <span><label for="name"><Translate value="new_form.name_label" /></label></span>
+            <span><label htmlFor="name"><Translate value="new_form.name_label" /></label></span>
             <input id="name" name="name" type="text" onChange={props.fieldChangeHandler} />
           </li>
           <li>
-            <span><label for="days"><Translate value="new_form.days_label" /></label></span>
+            <span><label htmlFor="days"><Translate value="new_form.days_label" /></label></span>
             <input id="days" name="days" type="number" min="1" onChange={props.fieldChangeHandler}/>
           </li>
           <li>
-            <span><label for="nights"><Translate value="new_form.nights_label" /></label></span>
+            <span><label htmlFor="nights"><Translate value="new_form.nights_label" /></label></span>
             <input id="nights" name="nights" type="number" min="0" onChange={props.fieldChangeHandler} value={props.nightsCount || ''} />
           </li>
         </ol>

@@ -21,12 +21,12 @@ Meteor.methods({
       name: name
     });
 
-    for (const list of BasicTemplate) {
+    for (let list of BasicTemplate) {
       const listId = Lists.insert({
         trip_id: newTripId,
         name: I18n.t(`templates.lists.${list.label}`)
       });
-      for (const item of list.items) {
+      for (let item of list.items) {
         let count = item.count;
         if (isString(count)) {
           count = count.replace('[days]', days);
@@ -35,7 +35,7 @@ Meteor.methods({
         }
         Items.insert({
           trip_id: newTripId,
-          listId: listId,
+          list_id: listId,
           checked: false,
           count: count,
           name: I18n.t(`templates.items.${item.label}`)

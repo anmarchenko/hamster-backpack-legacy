@@ -6,7 +6,8 @@ module.exports = {
     "meteor"
   ],
   "rules": {
-    "comma-dangle": [1, "never"]
+    "comma-dangle": [1, "never"],
+    "prefer-template": 1
   },
   "parserOptions": {
     "ecmaVersion": 6,

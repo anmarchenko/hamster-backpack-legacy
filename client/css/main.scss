@@ -123,7 +123,11 @@ button.button-primary {
       li {
         font-size: 16px;
         color: $secondary-text;
-        padding: 10px 10px 10px 30px;
+        padding: 5px 5px 5px 30px;
+        margin-bottom: 0px;
+
+        display: flex;
+        flex-flow: row;
       }
     }
 

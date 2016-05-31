@@ -77,8 +77,12 @@ export default class Landing extends Component {
   }
 }
 
+Landing.propTypes = {
+  routeParams: PropTypes.object
+};
+
 Landing.contextTypes = {
-  router: React.PropTypes.object.isRequired
+  router: PropTypes.object.isRequired
 };
 
 

@@ -12,7 +12,7 @@ import Landing from '../imports/ui/Landing.jsx'
 import TripFormContainer from '../imports/containers/TripFormContainer.jsx'
 import TripContainer from '../imports/containers/TripContainer.jsx'
 
-renderRoutes = () => (
+const renderRoutes = () => (
   <Router history={browserHistory}>
     <Redirect from="/" to="/en"/>
     <Route path="/:locale" component={Landing}/>

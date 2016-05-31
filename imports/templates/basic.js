@@ -9,7 +9,7 @@ export default BasicTemplate = [
             {
               label: 'hygiene_tissues',
               count: '[days]/2'
-            },
+            }
         ]
   },
   {
