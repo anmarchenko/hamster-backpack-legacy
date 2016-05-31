@@ -4,7 +4,6 @@ import {createContainer} from 'meteor/react-meteor-data';
 
 import Trip from '../ui/Trip.jsx';
 import ListContainer from './ListContainer.jsx';
-import NavbarContainer from './NavbarContainer.jsx';
 
 import {Trips, Lists} from '../api/collections.js';
 
@@ -31,12 +30,9 @@ class TripContainer extends Component {
 
   render() {
     return (
-      <div>
-        <NavbarContainer/>
-        <Trip tripName={this.props.trip.name || ''}>
-          {this.renderLists()}
-        </Trip>
-      </div>
+      <Trip tripName={this.props.trip.name || ''}>
+        {this.renderLists()}
+      </Trip>
     )
   }
 }
