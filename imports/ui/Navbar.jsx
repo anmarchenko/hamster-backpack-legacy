@@ -1,6 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 
-Navbar = (props) => (
+const Navbar = () => (
   <nav className="navbar">
     <div className="container">
       <ul className="navbar-list">

@@ -1,5 +1,5 @@
 module.exports = {
-  "extends": ["eslint:recommended", "plugin:meteor/recommended"],
+  "extends": ["eslint:recommended", "plugin:meteor/recommended", "plugin:react/recommended"],
   "installedESLint": true,
   "plugins": [
     "react",
