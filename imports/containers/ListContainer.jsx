@@ -1,11 +1,11 @@
-import React, { Component, PropTypes } from 'react'
-import { I18n } from 'react-i18nify'
-import { createContainer } from 'meteor/react-meteor-data';
+import React, {Component, PropTypes} from 'react'
+import {I18n} from 'react-i18nify'
+import {createContainer} from 'meteor/react-meteor-data';
 
 import List from '../ui/List.jsx'
 import ItemContainer from './ItemContainer.jsx'
 
-import { Items } from '../api/collections.js';
+import {Items} from '../api/collections.js';
 
 class ListContainer extends Component {
   constructor(props) {
@@ -13,16 +13,13 @@ class ListContainer extends Component {
     this.state = {};
   }
 
-  componentWillMount() {
-  }
+  componentWillMount() {}
 
   renderItems() {
     return (
       <div>
-        {this.props.items.map(function(item){
-          return (
-            <ItemContainer key={item._id} item={item} />
-          )
+        {this.props.items.map(function(item) {
+          return (<ItemContainer key={item._id} item={item}/>)
         })}
       </div>
     )

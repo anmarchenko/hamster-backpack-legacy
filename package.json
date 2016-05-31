@@ -13,5 +13,10 @@
     "react-dom": "^15.0.1",
     "react-i18nify": "^1.2.0",
     "react-router": "^2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^2.11.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-react": "^5.1.1"
   }
 }

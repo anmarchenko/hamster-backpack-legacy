@@ -1,12 +1,14 @@
-import React, { Component, PropTypes } from 'react'
-import { Translate } from 'react-i18nify'
+import React, {Component, PropTypes} from 'react'
+import {Translate} from 'react-i18nify'
 
 List = (props) => (
   <div className="tasks-list">
-    <div className="header">
+    <header>
       {props.name}
-    </div>
-    {props.children}
+    </header>
+    <ul>
+      {props.children}
+    </ul>
   </div>
 )
 

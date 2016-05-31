@@ -1,32 +1,24 @@
 /* CSS declarations go here */
-
 // primary colors
 $dark-primary: #E64A19;
 $default-primary: #FF5722;
 $light-primary: #FFCCBC;
-// text on primary background
 $text-contrast: #FFFFFF;
-
 $cta: #448AFF;
-
 $primary-text: #212121;
 $secondary-text: #727272;
-
 $borders: #B6B6B6;
-
 body {
   color: $primary-text;
 }
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 input[type="number"] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
-
 li.checked {
   font-weight: bold;
   &:active {
@@ -40,24 +32,20 @@ li.checked {
   height: 6.5rem;
   background: $dark-primary;
   z-index: 99;
-
   .container {
     width: 100%;
   }
-
   .navbar-list {
     list-style: none;
     margin-bottom: 0;
-
     .navbar-item {
       position: relative;
       float: left;
       margin-bottom: 0;
-
       .navbar-link {
         font-size: 19px;
         font-weight: 600;
-        letter-spacing: .2rem;
+        letter-spacing: 0.2rem;
         margin-right: 35px;
         text-decoration: none;
         line-height: 6.5rem;
@@ -66,11 +54,9 @@ li.checked {
     }
   }
 }
-
 // Landing
 .landing {
   margin-top: 10rem;
-
   .usage-steps {
     .usage-step {
       text-align: center;
@@ -78,7 +64,6 @@ li.checked {
     .usage-image {
       width: 96px;
     }
-
     .usage-text {
       font-size: 1.3em;
       margin-top: 1rem;
@@ -88,21 +73,59 @@ li.checked {
     }
   }
 }
-
 .cta-row {
   text-align: center;
 }
-
 button.button-primary {
   background-color: $cta;
   border-color: $cta;
-
-  &:hover, &:active, &:focus {
+  &:active,
+  &:focus,
+  &:hover {
     background-color: darken($cta, 30%);
     border-color: darken($cta, 30%);
   }
 }
-
 .trip-form-background {
   background-color: $light-primary;
+}
+.trip {
+  .trip-header {
+    font-size: 24px;
+    margin-top: 60px;
+  }
+
+  .tasks-area {
+    margin-top: 40px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    .tasks-list {
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+      margin-right: 45px;
+      margin-bottom: 30px;
+      min-width: 200px;
+      @media (max-width: 768px) {
+        width: 100%;
+        margin-right: 0px;
+      }
+      header {
+        padding: 10px 10px 10px 30px;
+        background-color: $dark-primary;
+        color: $text-contrast;
+        font-size: 18px;
+        margin-bottom: 1em;
+      }
+      ul {
+        list-style: none;
+      }
+      li {
+        font-size: 16px;
+        color: $secondary-text;
+        padding: 10px 10px 10px 30px;
+      }
+    }
+
+  }
 }

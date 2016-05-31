@@ -1,12 +1,12 @@
-import React, { Component, PropTypes } from 'react'
-import { Translate } from 'react-i18nify'
+import React, {Component, PropTypes} from 'react'
+import {Translate} from 'react-i18nify'
 
 Item = (props) => (
-  <i className="tasks-item">
-    --
-    {props.name}
-    <br />
-  </i>
+  <li className="tasks-item">
+    <div className="item-form">
+      {props.name}
+    </div>
+  </li>
 )
 
 Item.propTypes = {
