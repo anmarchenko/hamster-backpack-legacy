@@ -1,7 +1,19 @@
 module.exports = {
-  "extends": "airbnb",
+  "extends": ["eslint:recommended", "plugin:meteor/recommended"],
   "installedESLint": true,
   "plugins": [
-    "react"
-  ]
+    "react",
+    "meteor"
+  ],
+  "rules": {
+    "comma-dangle": [1, "never"]
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  }
 };

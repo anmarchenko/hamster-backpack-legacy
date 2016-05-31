@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {Translate} from 'react-i18nify';
 
-Trip = (props) => (
+const Trip = (props) => (
   <div className="container trip">
     <div className="trip-header">{props.tripName}</div>
     {props.children}

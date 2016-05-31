@@ -1,7 +1,7 @@
-import React, {Component, PropTypes} from 'react'
-import {Translate} from 'react-i18nify'
+import React, {Component, PropTypes} from 'react';
+import {Translate} from 'react-i18nify';
 
-List = (props) => (
+const List = (props) => (
   <div className="tasks-list">
     <header>
       {props.name}
@@ -14,6 +14,6 @@ List = (props) => (
 
 List.propTypes = {
   name: PropTypes.string.isRequired
-}
+};
 
-export default List
+export default List;
