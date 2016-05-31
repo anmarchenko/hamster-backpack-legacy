@@ -15,5 +15,10 @@ module.exports = {
       "jsx": true,
       "modules": true
     }
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "meteor": true
   }
 };

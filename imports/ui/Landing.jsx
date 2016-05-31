@@ -12,7 +12,7 @@ export default class Landing extends Component {
   }
 
   openForm() {
-     this.context.router.push('/' + this.props.routeParams.locale + '/new');
+     this.context.router.push(`/${this.props.routeParams.locale}/new`);
   }
 
   render(){

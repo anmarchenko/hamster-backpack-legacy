@@ -4,11 +4,7 @@ import { I18n } from 'react-i18nify';
 import isString from 'is-string';
 import math from 'mathjs';
 
-import {
-  Trips,
-  Lists,
-  Items
-} from './collections.js';
+import { Trips, Lists, Items } from './collections.js';
 
 import BasicTemplate from '../templates/basic.js';
 

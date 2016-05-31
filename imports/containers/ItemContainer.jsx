@@ -1,6 +1,4 @@
 import React, {Component, PropTypes} from 'react';
-import {I18n} from 'react-i18nify';
-import {createContainer} from 'meteor/react-meteor-data';
 
 import Item from '../ui/Item.jsx';
 

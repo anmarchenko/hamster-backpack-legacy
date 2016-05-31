@@ -1,9 +1,8 @@
-import React, {Component, PropTypes} from 'react'
-import {I18n} from 'react-i18nify'
+import React, {Component, PropTypes} from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
 
-import List from '../ui/List.jsx'
-import ItemContainer from './ItemContainer.jsx'
+import List from '../ui/List.jsx';
+import ItemContainer from './ItemContainer.jsx';
 
 import {Items} from '../api/collections.js';
 

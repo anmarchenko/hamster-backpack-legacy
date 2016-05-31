@@ -1,10 +1,10 @@
-import React, {Component, PropTypes} from 'react'
-import {I18n} from 'react-i18nify'
+import React, {Component, PropTypes} from 'react';
+import {I18n} from 'react-i18nify';
 import {createContainer} from 'meteor/react-meteor-data';
 
-import Trip from '../ui/Trip.jsx'
-import ListContainer from './ListContainer.jsx'
-import NavbarContainer from './NavbarContainer.jsx'
+import Trip from '../ui/Trip.jsx';
+import ListContainer from './ListContainer.jsx';
+import NavbarContainer from './NavbarContainer.jsx';
 
 import {Trips, Lists} from '../api/collections.js';
 
