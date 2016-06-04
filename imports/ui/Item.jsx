@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
 
 const Item = (props) => (
-  <li className="tasks-item">
-    <div className="item-check">
+  <li className={`tasks-item ${(props.checked ? "checked" : "")}`}>
+    <div className="item-check" onClick={props.clickCheck}>
       <input type="checkbox"  />
     </div>
     <div className="item-name">
@@ -19,7 +19,9 @@ const Item = (props) => (
 
 Item.propTypes = {
   name: PropTypes.string.isRequired,
-  count: PropTypes.number.isRequired
+  count: PropTypes.number.isRequired,
+  checked: PropTypes.bool.isRequired,
+  clickCheck: PropTypes.func.isRequired
 };
 
 export default Item;

@@ -1,4 +1,6 @@
 import '../imports/api/trips.js';
+import '../imports/api/items.js';
+
 import { check } from 'meteor/check';
 import { Trips, Lists, Items } from '../imports/api/collections.js';
 

@@ -7,7 +7,9 @@ $text-contrast: #FFFFFF;
 $cta: #448AFF;
 $primary-text: #212121;
 $secondary-text: #727272;
+$light-text: #b2b2b2;
 $borders: #B6B6B6;
+
 body {
   color: $primary-text;
 }
@@ -18,12 +20,6 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 input[type="number"] {
   -moz-appearance: textfield;
-}
-li.checked {
-  font-weight: bold;
-  &:active {
-    font-weight: normal;
-  }
 }
 /* Navbar */
 .navbar {
@@ -108,7 +104,7 @@ button.button-primary {
       min-width: 200px;
       @media (max-width: 768px) {
         width: 100%;
-        margin-right: 0px;
+        margin-right: 0;
       }
       header {
         padding: 10px 10px 10px 30px;
@@ -123,8 +119,8 @@ button.button-primary {
       li {
         font-size: 16px;
         color: $secondary-text;
-        padding: 5px 30px 5px 30px;
-        margin-bottom: 0px;
+        padding: 5px 30px;
+        margin-bottom: 0;
 
         display: flex;
         flex-flow: row;
@@ -149,9 +145,29 @@ button.button-primary {
           input:focus {
             outline: none;
           }
-
           input:after {
             content: url('images/unchecked.svg');
+          }
+        }
+
+        &.checked {
+          .item-check {
+            input:after {
+              content: url('images/checked_light.svg');
+            }
+          }
+
+          .item-count,
+          .item-name {
+            color: $light-text;
+          }
+
+          .item-name {
+            text-decoration: line-through;
+          }
+
+          .item-delete {
+            opacity: .4;
           }
         }
 

@@ -10,8 +10,12 @@ class ItemContainer extends Component {
 
   componentWillMount() {}
 
+  checkItem() {
+    Meteor.call('items.check', this.props.item._id, !this.props.item.checked);
+  }
+
   render() {
-    return (<Item name={this.props.item.name} count={this.props.item.count}/>)
+    return (<Item name={this.props.item.name} count={this.props.item.count} checked={this.props.item.checked} clickCheck={this.checkItem.bind(this)}/>)
   }
 }
 
