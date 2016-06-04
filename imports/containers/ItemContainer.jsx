@@ -11,7 +11,7 @@ class ItemContainer extends Component {
   componentWillMount() {}
 
   render() {
-    return (<Item name={this.props.item.name}/>)
+    return (<Item name={this.props.item.name} count={this.props.item.count}/>)
   }
 }
 

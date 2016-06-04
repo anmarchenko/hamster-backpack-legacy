@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react'
+import React, {Component, PropTypes} from 'react'
 
-import { I18n } from 'react-i18nify'
-import { Translate } from 'react-i18nify'
+import {I18n} from 'react-i18nify'
+import {Translate} from 'react-i18nify'
 
 import NavbarContainer from '../containers/NavbarContainer.jsx'
 
@@ -12,13 +12,13 @@ export default class Landing extends Component {
   }
 
   openForm() {
-     this.context.router.push(`/${this.props.routeParams.locale}/new`);
+    this.context.router.push(`/${this.props.routeParams.locale}/new`);
   }
 
-  render(){
+  render() {
     return (
       <span>
-        <NavbarContainer />
+        <NavbarContainer/>
 
         <div className="container">
           <div className="landing">
@@ -38,29 +38,29 @@ export default class Landing extends Component {
               </div>
               <div className="four columns usage-step">
                 <img className="usage-image" src="/images/checked.svg"></img>
-                  <div className="usage-text">
-                    <p>
-                      <Translate value="landing.step2_header"/>
-                    </p>
-                  </div>
-                  <div className="usage-text-secondary">
-                    <p>
-                      <Translate value="landing.step2_text"/>
-                    </p>
-                  </div>
+                <div className="usage-text">
+                  <p>
+                    <Translate value="landing.step2_header"/>
+                  </p>
+                </div>
+                <div className="usage-text-secondary">
+                  <p>
+                    <Translate value="landing.step2_text"/>
+                  </p>
+                </div>
               </div>
               <div className="four columns usage-step">
                 <img className="usage-image" src="/images/backpack.svg"></img>
-                  <div className="usage-text">
-                    <p>
-                      <Translate value="landing.step3_header"/>
-                    </p>
-                  </div>
-                  <div className="usage-text-secondary">
-                    <p>
-                      <Translate value="landing.step3_text"/>
-                    </p>
-                  </div>
+                <div className="usage-text">
+                  <p>
+                    <Translate value="landing.step3_header"/>
+                  </p>
+                </div>
+                <div className="usage-text-secondary">
+                  <p>
+                    <Translate value="landing.step3_text"/>
+                  </p>
+                </div>
               </div>
             </div>
             <div className="row cta-row">
@@ -84,6 +84,5 @@ Landing.propTypes = {
 Landing.contextTypes = {
   router: PropTypes.object.isRequired
 };
-
 
 export default Landing;

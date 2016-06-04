@@ -123,11 +123,45 @@ button.button-primary {
       li {
         font-size: 16px;
         color: $secondary-text;
-        padding: 5px 5px 5px 30px;
+        padding: 5px 30px 5px 30px;
         margin-bottom: 0px;
 
         display: flex;
         flex-flow: row;
+        align-content: center;
+
+        .item-name {
+          margin-right: 1em;
+        }
+
+        .item-count {
+          margin-left: auto;
+          margin-right: 1em;
+          float: right;
+        }
+
+        .item-check {
+          margin-right: 1em;
+          input {
+            appearance: none;
+            cursor: pointer;
+          }
+          input:focus {
+            outline: none;
+          }
+
+          input:after {
+            content: url('images/unchecked.svg');
+          }
+        }
+
+        .item-delete {
+          cursor: pointer;
+          img {
+            width: 24px;
+            height: 24px;
+          }
+        }
       }
     }
 
