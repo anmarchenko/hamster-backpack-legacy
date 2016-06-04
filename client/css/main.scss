@@ -150,6 +150,14 @@ button.button-primary {
           }
         }
 
+        .item-delete {
+          cursor: pointer;
+          img {
+            width: 24px;
+            height: 24px;
+          }
+        }
+
         &.checked {
           .item-check {
             input:after {
@@ -168,14 +176,6 @@ button.button-primary {
 
           .item-delete {
             opacity: .4;
-          }
-        }
-
-        .item-delete {
-          cursor: pointer;
-          img {
-            width: 24px;
-            height: 24px;
           }
         }
       }
