@@ -6,7 +6,12 @@ Meteor.methods({
   'items.check' (itemId, isChecked) {
     check(itemId, String);
     check(isChecked, Boolean);
-    
+
     Items.update(itemId, { $set: { checked: isChecked } });
+  },
+  'items.delete' (itemId) {
+    check(itemId, String);
+
+    Items.remove(itemId);
   }
 });
