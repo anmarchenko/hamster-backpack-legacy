@@ -3,6 +3,7 @@ import {createContainer} from 'meteor/react-meteor-data';
 
 import List from '../ui/List.jsx';
 import ItemContainer from './ItemContainer.jsx';
+import NewItemContainer from './NewItemContainer.jsx';
 
 import {Items} from '../api/collections.js';
 
@@ -20,6 +21,7 @@ class ListContainer extends Component {
         {this.props.items.map(function(item) {
           return (<ItemContainer key={item._id} item={item}/>)
         })}
+        <NewItemContainer/>
       </div>
     )
   }
@@ -28,6 +30,7 @@ class ListContainer extends Component {
     return (
       <List name={this.props.list.name}>
         {this.renderItems()}
+
       </List>
     )
   }
