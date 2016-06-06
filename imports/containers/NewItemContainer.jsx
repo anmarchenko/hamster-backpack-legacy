@@ -5,14 +5,26 @@ import NewItem from '../ui/NewItem.jsx';
 class NewItemContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      name: null,
+      count: null
+    };
   }
+
+  onNameChanged() {}
+
+  onCountChanged() {}
+
+  addItem() {}
 
   render() {
     return (<NewItem/>)
   }
 }
 
-NewItemContainer.propTypes = {};
+NewItemContainer.propTypes = {
+  tripId: PropTypes.string.isRequired,
+  listId: PropTypes.string.isRequired
+};
 
 export default NewItemContainer;

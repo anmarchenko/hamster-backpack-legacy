@@ -135,10 +135,6 @@ button.button-primary {
 
         .item-name {
           margin-right: 1em;
-
-          input {
-            margin-left: 40px;
-          }
         }
 
         .item-count {
@@ -191,6 +187,14 @@ button.button-primary {
 
           .item-delete {
             opacity: .4;
+          }
+        }
+
+        &.new-item {
+          .item-delete {
+            img {
+              margin-top: 8px;
+            }
           }
         }
       }

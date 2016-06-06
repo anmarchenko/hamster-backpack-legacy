@@ -21,7 +21,7 @@ class ListContainer extends Component {
         {this.props.items.map(function(item) {
           return (<ItemContainer key={item._id} item={item}/>)
         })}
-        <NewItemContainer/>
+        <NewItemContainer listId={this.props.list._id} tripId={this.props.list.trip_id}/>
       </div>
     )
   }
