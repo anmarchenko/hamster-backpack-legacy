@@ -13,8 +13,6 @@ class ListContainer extends Component {
     this.state = {};
   }
 
-  componentWillMount() {}
-
   renderItems() {
     return (
       <div>

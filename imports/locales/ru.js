@@ -15,6 +15,9 @@ export default RU_LOCALE = {
     error: 'Пожалуйста заполните поле, это важно',
     error_number: 'Число должно быть не отрицательным!'
   },
+  items: {
+    new_item_placeholder: 'Что ещё?'
+  },
   templates: {
     lists: {
       hygiene: 'Бытовая химия/средства личной гигиены',

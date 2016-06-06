@@ -15,6 +15,9 @@ export default EN_LOCALE = {
     error: 'Please fill out this field, it is important',
     error_number: 'This number seems wrong... Should be not negative'
   },
+  items: {
+    new_item_placeholder: 'What else?'
+  },
   templates: {
     lists: {
       hygiene: 'Personal hygiene',

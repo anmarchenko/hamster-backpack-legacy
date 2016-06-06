@@ -6,8 +6,7 @@ class NewItemContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      count: ""
+      name: ""
     };
   }
 
@@ -19,15 +18,16 @@ class NewItemContainer extends Component {
     if (!this.state.name) {
       return;
     }
-    // TODO: get count from name
-    let count = this.state.count;
-    if (!count) {
+    let name = this.state.name;
+    const countString = name.split(/\s+/).pop();
+    let count = Number.parseInt(countString)
+    if (isNaN(count)) {
       count = 1;
     } else {
-      count = Number.parseInt(count);
+      name = name.replace(new RegExp(`${countString}$`), '');
     }
-    Meteor.call('items.create', this.props.tripId, this.props.listId, this.state.name, count);
-    this.setState({name: '', count: ''})
+    Meteor.call('items.create', this.props.tripId, this.props.listId, name, count);
+    this.setState({name: ''})
   }
 
   onKeyPress(event) {
@@ -37,7 +37,7 @@ class NewItemContainer extends Component {
   }
 
   render() {
-    return (<NewItem onNameChanged={this.onNameChanged.bind(this)} addItem={this.addItem.bind(this)} onKeyPress={this.onKeyPress.bind(this)} name={this.state.name} />)
+    return (<NewItem onNameChanged={this.onNameChanged.bind(this)} addItem={this.addItem.bind(this)} onKeyPress={this.onKeyPress.bind(this)} name={this.state.name}/>)
   }
 }
 
