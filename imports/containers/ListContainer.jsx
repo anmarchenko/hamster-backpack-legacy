@@ -30,7 +30,6 @@ class ListContainer extends Component {
     return (
       <List name={this.props.list.name}>
         {this.renderItems()}
-
       </List>
     )
   }
