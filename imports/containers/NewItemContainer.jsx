@@ -15,14 +15,11 @@ class NewItemContainer extends Component {
     this.setState({name: event.target.value})
   }
 
-  onCountChanged(event) {
-    this.setState({count: event.target.value})
-  }
-
   addItem() {
     if (!this.state.name) {
       return;
     }
+    // TODO: get count from name
     let count = this.state.count;
     if (!count) {
       count = 1;
@@ -40,8 +37,7 @@ class NewItemContainer extends Component {
   }
 
   render() {
-    return (<NewItem onNameChanged={this.onNameChanged.bind(this)} onCountChanged={this.onCountChanged.bind(this)}
-    addItem={this.addItem.bind(this)} onKeyPress={this.onKeyPress.bind(this)} name={this.state.name} count={this.state.count}/>)
+    return (<NewItem onNameChanged={this.onNameChanged.bind(this)} addItem={this.addItem.bind(this)} onKeyPress={this.onKeyPress.bind(this)} name={this.state.name} />)
   }
 }
 

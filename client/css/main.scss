@@ -141,10 +141,6 @@ button.button-primary {
           margin-left: auto;
           margin-right: 1em;
           float: right;
-
-          input {
-            width: 40px;
-          }
         }
 
         .item-check {
@@ -194,6 +190,14 @@ button.button-primary {
           .item-delete {
             img {
               margin-top: 8px;
+            }
+          }
+
+          .item-name {
+            width: 100%;
+
+            input {
+              width: 100%;
             }
           }
         }
