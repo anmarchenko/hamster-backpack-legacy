@@ -5,7 +5,9 @@ import Item from '../ui/Item.jsx';
 class ItemContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      edit: false
+    };
   }
 
   checkItem() {
@@ -17,7 +19,7 @@ class ItemContainer extends Component {
   }
 
   render() {
-    return (<Item name={this.props.item.name} count={this.props.item.count} checked={this.props.item.checked} onClickCheck={this.checkItem.bind(this)} onClickDelete={this.deleteItem.bind(this)}/>)
+    return (<Item name={this.props.item.name} count={this.props.item.count} checked={this.props.item.checked} onClickCheck={this.checkItem.bind(this)} onClickDelete={this.deleteItem.bind(this)} edit={this.state.edit}/>)
   }
 }
 

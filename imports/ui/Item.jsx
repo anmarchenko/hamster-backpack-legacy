@@ -23,6 +23,7 @@ Item.propTypes = {
   name: PropTypes.string.isRequired,
   count: PropTypes.number.isRequired,
   checked: PropTypes.bool.isRequired,
+  edit: PropTypes.bool.isRequired,
   onClickCheck: PropTypes.func.isRequired,
   onClickDelete: PropTypes.func.isRequired
 };
