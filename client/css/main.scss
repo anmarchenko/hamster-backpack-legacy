@@ -135,12 +135,14 @@ button.button-primary {
 
         .item-name {
           margin-right: 1em;
+          cursor: pointer;
         }
 
         .item-count {
           margin-left: auto;
           margin-right: 1em;
           float: right;
+          cursor: pointer;
         }
 
         .item-check {
@@ -198,6 +200,14 @@ button.button-primary {
 
             input {
               width: 100%;
+            }
+          }
+        }
+
+        &.edit-item {
+          .item-name {
+            input {
+              height: 30px;
             }
           }
         }

@@ -7,10 +7,10 @@ const Item = (props) => (
     <div className="item-check" onClick={props.onClickCheck}>
       <input type="checkbox"/>
     </div>
-    <div className="item-name">
+    <div className="item-name" onClick={props.onClickText}>
       {props.name}
     </div>
-    <div className="item-count">
+    <div className="item-count" onClick={props.onClickText}>
       {props.count}
     </div>
     <div className="item-delete" onClick={props.onClickDelete}>
@@ -23,9 +23,9 @@ Item.propTypes = {
   name: PropTypes.string.isRequired,
   count: PropTypes.number.isRequired,
   checked: PropTypes.bool.isRequired,
-  edit: PropTypes.bool.isRequired,
   onClickCheck: PropTypes.func.isRequired,
-  onClickDelete: PropTypes.func.isRequired
+  onClickDelete: PropTypes.func.isRequired,
+  onClickText: PropTypes.func.isRequired
 };
 
 export default Item;

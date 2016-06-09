@@ -13,7 +13,7 @@ const List = (props) => (
 
 List.propTypes = {
   name: PropTypes.string.isRequired,
-  children: PropTypes.object
+  children: PropTypes.array
 };
 
 export default List;
