@@ -19,13 +19,20 @@ Meteor.methods({
     check(listId, String);
     check(name, String);
     check(count, Number);
-    
+
     Items.insert({
       trip_id: tripId,
       list_id: listId,
       checked: false,
       count: count,
-      name: name
+      name: name.trim()
     });
+  },
+  'items.update' (itemId, name, count) {
+    check(itemId, String);
+    check(name, String);
+    check(count, Number);
+
+    Items.update(itemId, { $set: { name: name.trim(), count: count } });
   }
 });

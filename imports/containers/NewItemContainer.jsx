@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 
 import NewItem from '../ui/NewItem.jsx';
+import Parser from '../utils/parser.js';
 
 class NewItemContainer extends Component {
   constructor(props) {
@@ -18,15 +19,8 @@ class NewItemContainer extends Component {
     if (!this.state.name) {
       return;
     }
-    let name = this.state.name;
-    const countString = name.split(/\s+/).pop();
-    let count = Number.parseInt(countString)
-    if (isNaN(count)) {
-      count = 1;
-    } else {
-      name = name.replace(new RegExp(`${countString}$`), '');
-    }
-    Meteor.call('items.create', this.props.tripId, this.props.listId, name, count);
+    const parsed = Parser.parseItem(this.state.name);
+    Meteor.call('items.create', this.props.tripId, this.props.listId, parsed.name, parsed.count);
     this.setState({name: ''})
   }
 

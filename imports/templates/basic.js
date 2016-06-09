@@ -1,4 +1,4 @@
-export default BasicTemplate = [
+const BasicTemplate = [
   {
       label: 'hygiene',
       items: [
@@ -30,3 +30,5 @@ export default BasicTemplate = [
     ]
   }
 ];
+
+export default BasicTemplate;

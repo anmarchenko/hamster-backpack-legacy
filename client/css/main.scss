@@ -206,8 +206,11 @@ button.button-primary {
 
         &.edit-item {
           .item-name {
+            width: 100%;
+
             input {
               height: 30px;
+              width: 100%;
             }
           }
         }

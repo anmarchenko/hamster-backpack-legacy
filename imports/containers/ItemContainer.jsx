@@ -3,11 +3,14 @@ import React, {Component, PropTypes} from 'react';
 import Item from '../ui/Item.jsx';
 import ItemEdit from '../ui/ItemEdit.jsx';
 
+import Parser from '../utils/parser.js';
+
 class ItemContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      edit: false
+      edit: false,
+      editedText: ''
     };
   }
 
@@ -21,12 +24,14 @@ class ItemContainer extends Component {
 
   editItem() {
     if (!this.props.item.checked) {
-      this.setState({edit: true});
+      this.setState({edit: true, editedText: `${this.props.item.name} ${this.props.item.count}`});
     }
   }
 
   saveItem() {
-    this.setState({edit: false});
+    const parsed = Parser.parseItem(this.state.editedText);
+    Meteor.call('items.update', this.props.item._id, parsed.name, parsed.count);
+    this.setState({edit: false, editedText: ''});
   }
 
   editKeyPressed(event) {
@@ -35,15 +40,16 @@ class ItemContainer extends Component {
     }
   }
 
-  updateItem(event) {
-    const text = event.target.value;
+  setEditedText(event) {
+    this.setState({editedText: event.target.value});
   }
 
   render() {
     if (this.state.edit) {
-      return (<ItemEdit text={`${this.props.item.name} ${this.props.item.count}`}
+      return (<ItemEdit text={this.state.editedText}
                         onFinish={this.saveItem.bind(this)}
-                        onKeyPressed={this.editKeyPressed.bind(this)} />)
+                        onKeyPressed={this.editKeyPressed.bind(this)}
+                        onInputChange={this.setEditedText.bind(this)} />)
     } else {
       return (<Item name={this.props.item.name}
                     count={this.props.item.count}
