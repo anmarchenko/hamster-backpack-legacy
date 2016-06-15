@@ -112,6 +112,13 @@ button.button-primary {
         color: $text-contrast;
         font-size: 18px;
         margin-bottom: 1em;
+        .list-delete {
+          cursor: pointer;
+          img {
+            height: 24px;
+            float: right;
+          }
+        }
       }
       ul {
         list-style: none;

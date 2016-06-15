@@ -13,6 +13,10 @@ class ListContainer extends Component {
     this.state = {};
   }
 
+  deleteList() {
+    Meteor.call('lists.delete', this.props.list._id);
+  }
+
   renderItems() {
     return (
       <div>
@@ -25,7 +29,7 @@ class ListContainer extends Component {
 
   render() {
     return (
-      <List name={this.props.list.name}>
+      <List name={this.props.list.name} clickDelete={this.deleteList.bind(this)}>
         {this.renderItems()}
         <NewItemContainer listId={this.props.list._id} tripId={this.props.list.trip_id}/>
       </List>
