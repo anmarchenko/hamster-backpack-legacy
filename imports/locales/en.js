@@ -31,5 +31,11 @@ export default EN_LOCALE = {
       money: 'Money and credit cards',
       insurance: 'Travel insurance'
     }
+  },
+  confirmations: {
+    header: 'Are you sure?',
+    list_content: 'List will be deleted together with all items in it!',
+    yes_delete: 'Yes, delete it!',
+    no_keep: 'No, keep it'
   }
 };

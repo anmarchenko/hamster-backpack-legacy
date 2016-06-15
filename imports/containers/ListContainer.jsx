@@ -6,6 +6,7 @@ import ItemContainer from './ItemContainer.jsx';
 import NewItemContainer from './NewItemContainer.jsx';
 
 import {Items} from '../api/collections.js';
+import {I18n} from 'react-i18nify'
 
 class ListContainer extends Component {
   constructor(props) {
@@ -14,7 +15,16 @@ class ListContainer extends Component {
   }
 
   deleteList() {
-    Meteor.call('lists.delete', this.props.list._id);
+    swal({
+      title: I18n.t('confirmations.header'),
+      text: I18n.t('confirmations.list_content'),
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: I18n.t('confirmations.yes_delete'),
+      cancelButtonText: I18n.t('confirmations.no_keep')
+    }).then(function() {
+      Meteor.call('lists.delete', this.props.list._id);
+    }.bind(this));
   }
 
   renderItems() {

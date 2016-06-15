@@ -1,5 +1,6 @@
 /* CSS declarations go here */
 // primary colors
+
 $dark-primary: #E64A19;
 $default-primary: #FF5722;
 $light-primary: #FFCCBC;
@@ -114,6 +115,7 @@ button.button-primary {
         margin-bottom: 1em;
         .list-delete {
           cursor: pointer;
+          margin-left: 10px;
           img {
             height: 24px;
             float: right;
@@ -137,7 +139,7 @@ button.button-primary {
           border-top: none;
           border-left: none;
           border-right: none;
-          border-radius: 0px;
+          border-radius: 0;
         }
 
         .item-name {
@@ -191,7 +193,7 @@ button.button-primary {
           }
 
           .item-delete {
-            opacity: .4;
+            opacity: 0.4;
           }
         }
 
@@ -224,5 +226,26 @@ button.button-primary {
       }
     }
 
+  }
+}
+
+.swal2-container {
+  button {
+    height: inherit;
+    padding: inherit;
+    color: inherit;
+    text-align: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+    white-space: inherit;
+    background-color: inherit;
+    border-radius: inherit;
+    border: inherit;
+    cursor: inherit;
+    box-sizing: inherit;
   }
 }

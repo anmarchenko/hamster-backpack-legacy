@@ -31,6 +31,11 @@ export default RU_LOCALE = {
       money: 'Деньги и кредитка',
       insurance: 'Страховки'
     }
+  },
+  confirmations: {
+    header: 'Вы уверены?',
+    list_content: 'Список будет удален со всеми вещами в нем!',
+    yes_delete: 'Да, удалить!',
+    no_keep: 'Нет, оставить'
   }
-
 };
