@@ -1,15 +1,13 @@
 import React, {PropTypes} from 'react';
 
+import ListHeader from './ListHeader';
+import ListEditHeader from './ListEditHeader';
+
 const List = (props) => (
   <div className="tasks-list">
-    <header>
-      <span className="list-name">
-        {props.name}
-      </span>
-      <span className="list-delete" onClick={props.clickDelete}>
-        <img src="/images/trash.svg"/>
-      </span>
-    </header>
+    {props.edit ? (<ListHeader name={props.name} clickDelete={props.clickDelete} />) :
+                  (<ListEditHeader editNameText={props.editNameText}/>)
+    }
     <ul>
       {props.children}
     </ul>
