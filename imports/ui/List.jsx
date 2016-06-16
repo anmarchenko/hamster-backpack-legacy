@@ -5,8 +5,8 @@ import ListEditHeader from './ListEditHeader';
 
 const List = (props) => (
   <div className="tasks-list">
-    {props.edit ? (<ListHeader name={props.name} clickDelete={props.clickDelete} />) :
-                  (<ListEditHeader editNameText={props.editNameText}/>)
+    {props.edit ? (<ListEditHeader editNameText={props.editNameText}/>) :
+                  (<ListHeader name={props.name} clickDelete={props.clickDelete} />)
     }
     <ul>
       {props.children}
