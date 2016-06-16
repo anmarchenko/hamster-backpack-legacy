@@ -19,6 +19,8 @@ const List = (props) => (
 List.propTypes = {
   name: PropTypes.string.isRequired,
   clickDelete: PropTypes.func.isRequired,
+  edit: PropTypes.bool.isRequired,
+  editNameText: PropTypes.string.isRequired,
   children: PropTypes.array
 };
 

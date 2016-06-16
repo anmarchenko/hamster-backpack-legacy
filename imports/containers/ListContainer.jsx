@@ -7,21 +7,25 @@ import NewItemContainer from './NewItemContainer.jsx';
 
 import {Items} from '../api/collections.js';
 import {I18n} from 'react-i18nify'
+import SweetAlert from 'sweetalert2';
 
 class ListContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      edit: false,
+      editNameText: ''
+    };
   }
 
   deleteList() {
-    swal({
+    SweetAlert({
       title: I18n.t('confirmations.header'),
       text: I18n.t('confirmations.list_content'),
-      type: 'warning',
-      showCancelButton: true,
       confirmButtonText: I18n.t('confirmations.yes_delete'),
-      cancelButtonText: I18n.t('confirmations.no_keep')
+      cancelButtonText: I18n.t('confirmations.no_keep'),
+      type: 'warning',
+      showCancelButton: true
     }).then(function() {
       Meteor.call('lists.delete', this.props.list._id);
     }.bind(this));
@@ -39,7 +43,9 @@ class ListContainer extends Component {
 
   render() {
     return (
-      <List name={this.props.list.name} clickDelete={this.deleteList.bind(this)}>
+      <List name={this.props.list.name} clickDelete={this.deleteList.bind(this)}
+            edit={this.state.edit} editNameText={this.state.editNameText}
+        >
         {this.renderItems()}
         <NewItemContainer listId={this.props.list._id} tripId={this.props.list.trip_id}/>
       </List>
