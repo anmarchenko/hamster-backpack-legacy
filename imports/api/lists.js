@@ -7,5 +7,11 @@ Meteor.methods({
     check(listId, String);
 
     Lists.remove(listId);
+  },
+  'lists.update' (listId, name) {
+    check(listId, String);
+    check(name, String);
+
+    Lists.update(listId, { $set: { name: name.trim() } });
   }
 });

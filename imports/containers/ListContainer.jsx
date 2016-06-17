@@ -41,10 +41,18 @@ class ListContainer extends Component {
     )
   }
 
+  startEdit() {
+    this.setState({
+      edit: true,
+      editNameText: this.props.list.name
+    });
+  }
+
   render() {
     return (
       <List name={this.props.list.name} clickDelete={this.deleteList.bind(this)}
             edit={this.state.edit} editNameText={this.state.editNameText}
+            startEdit={this.startEdit.bind(this)}
         >
         {this.renderItems()}
         <NewItemContainer listId={this.props.list._id} tripId={this.props.list.trip_id}/>

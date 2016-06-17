@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 
 const ListHeader = (props) => (
   <header>
-    <span className="list-name">
+    <span className="list-name" onClick={props.startEdit}>
       {props.name}
     </span>
     <span className="list-delete" onClick={props.clickDelete}>
@@ -13,7 +13,8 @@ const ListHeader = (props) => (
 
 ListHeader.propTypes = {
   name: PropTypes.string.isRequired,
-  clickDelete: PropTypes.func.isRequired
+  clickDelete: PropTypes.func.isRequired,
+  startEdit: PropTypes.func.isRequired
 };
 
 export default ListHeader;
