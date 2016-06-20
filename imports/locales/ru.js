@@ -20,7 +20,7 @@ export default RU_LOCALE = {
   },
   templates: {
     lists: {
-      hygiene: 'Бытовая химия/средства личной гигиены',
+      hygiene: 'Гигиена',
       stuff: 'С собой'
     },
     items: {

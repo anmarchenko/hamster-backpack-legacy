@@ -122,6 +122,16 @@ button.button-primary {
         }
         .list-name {
           cursor: pointer;
+
+          input {
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+            background: transparent;
+            border-color: $borders;
+            width: 100%;
+          }
         }
       }
       ul {

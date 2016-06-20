@@ -42,20 +42,31 @@ class ListContainer extends Component {
   }
 
   startEdit() {
-    this.setState({
-      edit: true,
-      editNameText: this.props.list.name
-    });
+    this.setState({edit: true, editNameText: this.props.list.name});
+  }
+
+  editValueChange(event) {
+    this.setState({editNameText: event.target.value});
+  }
+
+  updateName() {
+    Meteor.call('lists.update', this.props.list._id, this.state.editNameText);
+    this.setState({edit: false, editNameText: ''});
+  }
+
+  inputKeyPressed(event) {
+    if (event.key === 'Enter') {
+      this.updateName();
+    }
   }
 
   render() {
     return (
-      <List name={this.props.list.name} clickDelete={this.deleteList.bind(this)}
-            edit={this.state.edit} editNameText={this.state.editNameText}
-            startEdit={this.startEdit.bind(this)}
-        >
+      <List name={this.props.list.name} clickDelete={this.deleteList.bind(this)} edit={this.state.edit}
+        editNameText={this.state.editNameText} startEdit={this.startEdit.bind(this)}
+        changeValue={this.editValueChange.bind(this)} finishEdit={this.updateName.bind(this)} inputKeyPressed={this.inputKeyPressed.bind(this)} >
         {this.renderItems()}
-        <NewItemContainer listId={this.props.list._id} tripId={this.props.list.trip_id}/>
+        <NewItemContainer listId={this.props.list._id} tripId={this.props.list.trip_id} />
       </List>
     )
   }
