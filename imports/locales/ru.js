@@ -18,6 +18,9 @@ export default RU_LOCALE = {
   items: {
     new_item_placeholder: 'Что ещё?'
   },
+  lists: {
+    add_list: 'Добавить список'
+  },
   templates: {
     lists: {
       hygiene: 'Гигиена',

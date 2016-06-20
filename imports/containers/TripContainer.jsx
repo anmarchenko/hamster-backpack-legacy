@@ -4,6 +4,7 @@ import {createContainer} from 'meteor/react-meteor-data';
 
 import Trip from '../ui/Trip.jsx';
 import ListContainer from './ListContainer.jsx';
+import NewListContainer from './NewListContainer.jsx';
 
 import {Trips, Lists} from '../api/collections.js';
 
@@ -23,7 +24,8 @@ class TripContainer extends Component {
         {this.props.lists.map(function(list) {
           return (<ListContainer key={list._id} list={list}/>)
         })
-}
+        }
+        <NewListContainer/>
       </div>
     )
   }

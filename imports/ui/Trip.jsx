@@ -9,7 +9,7 @@ const Trip = (props) => (
 
 Trip.propTypes = {
   tripName: PropTypes.string.isRequired,
-  children: PropTypes.object
+  children: PropTypes.any
 };
 
 export default Trip;

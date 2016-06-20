@@ -18,6 +18,9 @@ export default EN_LOCALE = {
   items: {
     new_item_placeholder: 'What else?'
   },
+  lists: {
+    add_list: 'Add new list'
+  },
   templates: {
     lists: {
       hygiene: 'Personal hygiene',

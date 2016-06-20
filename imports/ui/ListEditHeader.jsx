@@ -3,7 +3,7 @@ import React, {PropTypes} from 'react';
 const ListEditHeader = (props) => (
   <header>
     <span className="list-name">
-      <input type="text" value={props.editNameText} onChange={props.changeCallback}
+      <input type="text" value={props.editNameText} onChange={props.changeCallback} autoFocus
         onKeyPress={props.inputKeyPressed} onBlur={props.finishEdit}/>
     </span>
   </header>
