@@ -3,7 +3,7 @@ import {Translate} from 'react-i18nify'
 
 const NewList = (props) => (
   <div className="new-list">
-    {props.addingNewList ? (<input />) : (
+    {props.addingNewList ? (<input name="new_list_name" value={props.text} />) : (
       <a href="javascript:void(0);">
         <Translate value="lists.add_list" />
       </a>
@@ -13,7 +13,8 @@ const NewList = (props) => (
 )
 
 NewList.propTypes = {
-  addingNewList: PropTypes.bool.isRequired
+  addingNewList: PropTypes.bool.isRequired,
+  text: PropTypes.string.isRequired
 };
 
 export default NewList;

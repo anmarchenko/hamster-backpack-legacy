@@ -13,5 +13,11 @@ Meteor.methods({
     check(name, String);
 
     Lists.update(listId, { $set: { name: name.trim() } });
+  },
+  'lists.create' (tripId, name) {
+    check(tripId, String);
+    check(name, String);
+
+    Lists.insert({ name: name.trim(), trip_id: tripId } );
   }
 });

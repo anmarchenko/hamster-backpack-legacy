@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import NewList from '../ui/NewList.jsx';
 
 class NewListContainer extends Component {
@@ -12,12 +12,9 @@ class NewListContainer extends Component {
 
   render() {
     return (
-      <NewList/>
+      <NewList addingNewList={this.state.addingNewList} text={this.state.newListText}/>
     )
   }
 }
-
-NewListContainer.propTypes = {
-};
 
 export default NewListContainer;
