@@ -1,4 +1,4 @@
-export default EN_LOCALE = {
+const EN_LOCALE = {
   landing: {
     step1_header: 'Create list of things to pack',
     step1_text: 'Give us some information about your trip and we will generate packing to-do list for you.',
@@ -19,7 +19,8 @@ export default EN_LOCALE = {
     new_item_placeholder: 'What else?'
   },
   lists: {
-    add_list: 'Add new list'
+    add_list: 'Add new list',
+    add_list_placeholder: 'List name'
   },
   templates: {
     lists: {
@@ -42,3 +43,5 @@ export default EN_LOCALE = {
     no_keep: 'No, keep it'
   }
 };
+
+export default EN_LOCALE;

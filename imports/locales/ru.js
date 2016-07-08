@@ -1,4 +1,4 @@
-export default RU_LOCALE = {
+const RU_LOCALE = {
   landing: {
     step1_header: 'Создай свой список вещей',
     step1_text: 'Для начала просто добавь информацию о предстоящем путешествии, и мы создадим твой список для сборов.',
@@ -19,7 +19,8 @@ export default RU_LOCALE = {
     new_item_placeholder: 'Что ещё?'
   },
   lists: {
-    add_list: 'Добавить список'
+    add_list: 'Добавить список',
+    add_list_placeholder: 'Название списка'
   },
   templates: {
     lists: {
@@ -42,3 +43,5 @@ export default RU_LOCALE = {
     no_keep: 'Нет, оставить'
   }
 };
+
+export default RU_LOCALE;

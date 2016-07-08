@@ -25,7 +25,6 @@ class TripContainer extends Component {
           return (<ListContainer key={list._id} list={list}/>)
         })
         }
-        <NewListContainer/>
       </div>
     )
   }
@@ -34,6 +33,7 @@ class TripContainer extends Component {
     return (
       <Trip tripName={this.props.trip.name || ''}>
         {this.renderLists()}
+        <NewListContainer tripId={this.props.trip._id || ''} />
       </Trip>
     )
   }
