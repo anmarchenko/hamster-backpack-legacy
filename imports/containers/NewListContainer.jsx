@@ -32,7 +32,7 @@ class NewListContainer extends Component {
   }
 
   addList() {
-    if (!this.state.newListText || this.state.newListText == ''){
+    if (!this.state.newListText || this.state.newListText === ''){
       return;
     }
     Meteor.call('lists.create', this.props.tripId, this.state.newListText);
