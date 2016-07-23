@@ -28,10 +28,14 @@ class ItemContainer extends Component {
     }
   }
 
+  cancelEdit() {
+    this.setState({edit: false, editedText: ''});
+  }
+
   saveItem() {
     const parsed = Parser.parseItem(this.state.editedText);
     Meteor.call('items.update', this.props.item._id, parsed.name, parsed.count);
-    this.setState({edit: false, editedText: ''});
+    this.cancelEdit();
   }
 
   editKeyPressed(event) {
@@ -48,6 +52,7 @@ class ItemContainer extends Component {
     if (this.state.edit) {
       return (<ItemEdit text={this.state.editedText}
                         onFinish={this.saveItem.bind(this)}
+                        onCancel={this.cancelEdit.bind(this)}
                         onKeyPressed={this.editKeyPressed.bind(this)}
                         onInputChange={this.setEditedText.bind(this)} />)
     } else {

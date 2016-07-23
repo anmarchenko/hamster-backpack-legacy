@@ -7,7 +7,7 @@ const ItemEdit = (props) => (
     </div>
     <div className="item-name">
       <input name="item_name" type="text" value={props.text} autoFocus
-        onKeyPress={props.onKeyPressed} onBlur={props.onFinish} onChange={props.onInputChange}/>
+        onKeyPress={props.onKeyPressed} onBlur={props.onCancel} onChange={props.onInputChange}/>
     </div>
     <div className="item-count">
     </div>
@@ -20,6 +20,7 @@ const ItemEdit = (props) => (
 ItemEdit.propTypes = {
   text: PropTypes.string.isRequired,
   onFinish: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
   onKeyPressed: PropTypes.func.isRequired,
   onInputChange: PropTypes.func.isRequired
 };
