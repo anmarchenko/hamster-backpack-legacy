@@ -41,6 +41,9 @@ const EN_LOCALE = {
     list_content: 'List will be deleted together with all items in it!',
     yes_delete: 'Yes, delete it!',
     no_keep: 'No, keep it'
+  },
+  notifications: {
+    link_copied: 'Link is copied to the clipboard!'
   }
 };
 

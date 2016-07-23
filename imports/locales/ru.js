@@ -41,6 +41,9 @@ const RU_LOCALE = {
     list_content: 'Список будет удален со всеми вещами в нем!',
     yes_delete: 'Да, удалить!',
     no_keep: 'Нет, оставить'
+  },
+  notifications: {
+    link_copied: 'Ссылка скопирована в буфер обмена'
   }
 };
 

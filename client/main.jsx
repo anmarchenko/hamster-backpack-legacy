@@ -12,6 +12,27 @@ import Landing from '../imports/ui/Landing.jsx'
 import TripFormContainer from '../imports/containers/TripFormContainer.jsx'
 import TripContainer from '../imports/containers/TripContainer.jsx'
 
+import toastr from 'toastr';
+
+// toastr is for notifications
+toastr.options = {
+    "closeButton": false,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-top-center",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "1500",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+}
+
 const renderRoutes = () => (
   <Router history={browserHistory}>
     <Redirect from="/" to="/en"/>

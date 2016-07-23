@@ -90,6 +90,14 @@ button.button-primary {
   .trip-header {
     font-size: 24px;
     margin-top: 60px;
+
+    .clipboard-link {
+      margin-left: .5em;
+      img {
+        height: .8em;
+        width: .8em;
+      }
+    }
   }
   .new-list {
     margin-bottom: 300px;
