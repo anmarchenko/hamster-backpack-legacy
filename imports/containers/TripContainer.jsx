@@ -31,7 +31,10 @@ class TripContainer extends Component {
 
   render() {
     return (
-      <Trip tripName={this.props.trip.name || ''}>
+      <Trip
+        tripName={this.props.trip.name || ''}
+        tripId={this.props.trip._id || ''}
+      >
         {this.renderLists()}
         <NewListContainer tripId={this.props.trip._id || ''} />
       </Trip>
@@ -47,7 +50,7 @@ TripContainer.propTypes = {
 
 TripContainer.contextTypes = {
   router: React.PropTypes.object.isRequired
-}
+};
 
 export default createContainer(({params}) => {
   Meteor.subscribe('trips.by_id', params.trip_id);
