@@ -50,7 +50,9 @@ class ListContainer extends Component {
   }
 
   updateName() {
-    Meteor.call('lists.update', this.props.list._id, this.state.editNameText);
+    if (this.state.editNameText && this.state.editNameText !== ''){
+      Meteor.call('lists.update', this.props.list._id, this.state.editNameText);
+    }
     this.cancelEdit();
   }
 

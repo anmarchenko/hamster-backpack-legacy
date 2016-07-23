@@ -33,8 +33,10 @@ class ItemContainer extends Component {
   }
 
   saveItem() {
-    const parsed = Parser.parseItem(this.state.editedText);
-    Meteor.call('items.update', this.props.item._id, parsed.name, parsed.count);
+    if (this.state.editedText && this.state.editedText !== '') {
+      const parsed = Parser.parseItem(this.state.editedText);
+      Meteor.call('items.update', this.props.item._id, parsed.name, parsed.count);
+    }
     this.cancelEdit();
   }
 
