@@ -44,5 +44,11 @@ Meteor.methods({
     }
 
     return newTripId;
+  },
+  'trips.update' (tripId, name) {
+    check(tripId, String);
+    check(name, String);
+
+    Trips.update(tripId, { $set: { name: name.trim() } });
   }
 });
