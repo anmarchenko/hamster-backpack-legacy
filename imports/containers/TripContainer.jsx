@@ -5,6 +5,7 @@ import {createContainer} from 'meteor/react-meteor-data';
 import Trip from '../ui/Trip.jsx';
 import ListContainer from './ListContainer.jsx';
 import NewListContainer from './NewListContainer.jsx';
+import NavbarContainer from '../containers/NavbarContainer.jsx'
 
 import {Trips, Lists} from '../api/collections.js';
 
@@ -73,20 +74,23 @@ class TripContainer extends Component {
 
   render() {
     return (
-      <Trip
-        tripName={this.props.trip.name || ''}
-        tripId={this.props.trip._id || ''}
+      <span>
+        <NavbarContainer locale={this.props.routeParams.locale}/>
+        <Trip
+          tripName={this.props.trip.name || ''}
+          tripId={this.props.trip._id || ''}
 
-        edit={this.state.editName}
-        editedText={this.state.editedNameText}
-        onNameClick={this._handleNameClick.bind(this)}
-        onInputChange={this._handleInputChange.bind(this)}
-        onFocusLost={this._handleFocusLost.bind(this)}
-        onKeyPress={this._handleKeyPress.bind(this)}
-      >
-        {this.renderLists()}
-        <NewListContainer tripId={this.props.trip._id || ''} />
-      </Trip>
+          edit={this.state.editName}
+          editedText={this.state.editedNameText}
+          onNameClick={this._handleNameClick.bind(this)}
+          onInputChange={this._handleInputChange.bind(this)}
+          onFocusLost={this._handleFocusLost.bind(this)}
+          onKeyPress={this._handleKeyPress.bind(this)}
+        >
+          {this.renderLists()}
+          <NewListContainer tripId={this.props.trip._id || ''} />
+        </Trip>
+      </span>
     )
   }
 }

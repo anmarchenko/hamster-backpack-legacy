@@ -1,4 +1,8 @@
 const EN_LOCALE = {
+  navbar: {
+    login: 'Login with Google',
+    logout: 'Logout'
+  },
   landing: {
     step1_header: 'Create list of things to pack',
     step1_text: 'Give us some information about your trip and we will generate packing to-do list for you.',

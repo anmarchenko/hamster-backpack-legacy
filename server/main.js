@@ -1,6 +1,7 @@
 import '../imports/api/trips.js';
 import '../imports/api/items.js';
 import '../imports/api/lists.js';
+import './config.js';
 
 import { check } from 'meteor/check';
 import { Trips, Lists, Items } from '../imports/api/collections.js';
@@ -29,4 +30,12 @@ Meteor.publish('lists.by_trip_id', function listsByTripIdPublication(trip_id) {
 Meteor.publish('items.by_trip_id', function itemsByListIdPublication(trip_id) {
   check(trip_id, String);
   return Items.find({ trip_id: trip_id });
+});
+
+Meteor.publish("currentUserData", function () {
+  if (this.userId) {
+    return Meteor.users.find({_id: this.userId});
+  } else {
+    this.ready();
+  }
 });

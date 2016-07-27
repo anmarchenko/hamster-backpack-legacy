@@ -1,15 +1,59 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
-const Navbar = () => (
-  <nav className="navbar">
-    <div className="container">
-      <ul className="navbar-list">
+import {Translate} from 'react-i18nify'
+
+const Navbar = (props) => {
+  let logInOrOut = null;
+  let userEmail = null;
+  if(Meteor.userId()) {
+    logInOrOut = (
+      <li className="navbar-item">
+        <a className="navbar-link" href="javascript:void(0)" onClick={props.onLogout}>
+          <Translate value="navbar.logout" />
+        </a>
+      </li>
+    )
+    if (props.user) {
+      userEmail = (
         <li className="navbar-item">
-          <a className="navbar-link" href="/">Hamster's Backpack</a>
+          <a className="navbar-link" href={`/${props.locale}`}>
+            {props.user.services.google.email}
+          </a>
         </li>
-      </ul>
-    </div>
-  </nav>
-)
+      )
+    }
+  } else {
+    logInOrOut = (
+      <li className="navbar-item">
+        <a className="navbar-link" href="javascript:void(0)" onClick={props.onLogin}>
+          <Translate value="navbar.login" />
+        </a>
+      </li>
+    )
+  }
+
+  return (
+    <nav className="navbar">
+      <div className="container">
+        <ul className="navbar-list">
+          <li className="navbar-item">
+            <a className="navbar-link" href={`/${props.locale}`}>Hamster's Backpack</a>
+          </li>
+        </ul>
+        <ul className="navbar-list navbar-menu right">
+          {userEmail}
+          {logInOrOut}
+        </ul>
+      </div>
+    </nav>
+  )
+}
+
+Navbar.propTypes = {
+  onLogin: PropTypes.func.isRequired,
+  onLogout: PropTypes.func.isRequired,
+  user: PropTypes.object,
+  locale: PropTypes.string.isRequired
+}
 
 export default Navbar;

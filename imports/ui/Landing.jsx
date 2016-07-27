@@ -18,7 +18,7 @@ export default class Landing extends Component {
   render() {
     return (
       <span>
-        <NavbarContainer/>
+        <NavbarContainer locale={this.props.routeParams.locale}/>
 
         <div className="container">
           <div className="landing">

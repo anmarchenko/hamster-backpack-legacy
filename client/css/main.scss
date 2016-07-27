@@ -34,6 +34,18 @@ input[type="number"] {
   .navbar-list {
     list-style: none;
     margin-bottom: 0;
+    &.right {
+      float: right;
+    }
+    &.navbar-menu {
+      .navbar-item {
+        .navbar-link {
+          font-size: 14px;
+          font-weight: normal;
+          letter-spacing: normal;
+        }
+      }
+    }
     .navbar-item {
       position: relative;
       float: left;
