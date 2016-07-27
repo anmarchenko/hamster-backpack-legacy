@@ -2,12 +2,12 @@ import React, {PropTypes} from 'react';
 
 const ListHeader = (props) => (
   <header>
-    <span className="list-name" onClick={props.startEdit}>
+    <div className="list-name" onClick={props.startEdit}>
       {props.name}
-    </span>
-    <span className="list-delete" onClick={props.clickDelete}>
+    </div>
+    <div className="list-delete" onClick={props.clickDelete}>
       <img src="/images/trash.svg"/>
-    </span>
+    </div>
   </header>
 )
 

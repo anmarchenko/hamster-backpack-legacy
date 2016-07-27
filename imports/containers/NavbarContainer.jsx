@@ -36,7 +36,7 @@ class NavbarContainer extends Component {
 
 NavbarContainer.propTypes = {
   user: PropTypes.object,
-  locale: PropTypes.string.isRequired
+  locale: PropTypes.string
 }
 
 export default createContainer(() => {

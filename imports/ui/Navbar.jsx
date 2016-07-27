@@ -13,7 +13,7 @@ const Navbar = (props) => {
         </a>
       </li>
     )
-    if (props.user) {
+    if (props.user && props.user.services && props.user.services.google) {
       userEmail = (
         <li className="navbar-item">
           <a className="navbar-link" href={`/${props.locale}`}>
@@ -53,7 +53,7 @@ Navbar.propTypes = {
   onLogin: PropTypes.func.isRequired,
   onLogout: PropTypes.func.isRequired,
   user: PropTypes.object,
-  locale: PropTypes.string.isRequired
+  locale: PropTypes.string
 }
 
 export default Navbar;

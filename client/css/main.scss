@@ -174,16 +174,22 @@ button.button-primary {
         color: $text-contrast;
         font-size: 14px;
         margin-bottom: 1em;
+        overflow: hidden;
+        div {
+          display: inline-block;
+        }
         .list-delete {
           cursor: pointer;
           margin-left: 10px;
+          float: right;
           img {
             height: 24px;
-            float: right;
           }
         }
         .list-name {
           cursor: pointer;
+          overflow: hidden;
+          max-width: 85%;
 
           input {
             border-top: none;
@@ -218,6 +224,7 @@ button.button-primary {
         .item-name {
           margin-right: 1em;
           cursor: pointer;
+          overflow: hidden;
         }
 
         .item-count {
