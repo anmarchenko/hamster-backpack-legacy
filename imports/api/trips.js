@@ -18,7 +18,8 @@ Meteor.methods({
     I18n.setLocale(locale);
 
     const newTripId = Trips.insert({
-      name: name
+      name: name,
+      userId: Meteor.userId()
     });
 
     for (let list of BasicTemplate) {
