@@ -19,6 +19,6 @@ react-meteor-data
 seba:minifiers-autoprefixer
 fourseven:scss
 static-html@1.1.11
-accounts-base
-accounts-google
-service-configuration
+accounts-base@1.2.9
+accounts-google@1.0.10
+service-configuration@1.0.10

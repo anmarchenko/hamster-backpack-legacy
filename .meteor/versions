@@ -69,7 +69,7 @@ spacebars@1.0.12
 spacebars-compiler@1.0.12
 standard-minifier-js@1.1.8
 static-html@1.1.11
-templating@1.1.14
+templating@1.2.13
 templating-tools@1.0.4
 tmeasday:check-npm-versions@0.3.1
 tracker@1.1.0
