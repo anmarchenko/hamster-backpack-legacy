@@ -43,11 +43,17 @@ const EN_LOCALE = {
   confirmations: {
     header: 'Are you sure?',
     list_content: 'List will be deleted together with all items in it!',
+    trip_content: 'Plan will be deleted forever!',
     yes_delete: 'Yes, delete it!',
     no_keep: 'No, keep it'
   },
   notifications: {
     link_copied: 'Link is copied to the clipboard!'
+  },
+  trips: {
+    header: 'My trips',
+    new_trip: 'New trip',
+    no_trips: 'No trips created yet'
   }
 };
 

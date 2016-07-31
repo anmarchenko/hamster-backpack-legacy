@@ -7,17 +7,27 @@ import toastr from 'toastr';
 
 class NavbarContainer extends Component {
   login() {
+    const props = this.props;
     Meteor.loginWithGoogle({}, function(error) {
       if (error) {
         toastr.error(error.message);
+      } else {
+        if (props.onUserChange) {
+          props.onUserChange();
+        }
       }
     });
   }
 
   logout() {
+    const props = this.props;
     Meteor.logout(function(error) {
       if (error) {
         toastr.error(error.message);
+      } else {
+        if (props.onUserChange) {
+          props.onUserChange();
+        }
       }
     });
   }
@@ -36,6 +46,7 @@ class NavbarContainer extends Component {
 
 NavbarContainer.propTypes = {
   user: PropTypes.object,
+  onUserChange: PropTypes.func,
   locale: PropTypes.string
 }
 

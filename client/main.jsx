@@ -8,7 +8,7 @@ import {I18n} from 'react-i18nify'
 import EN_LOCALE from '../imports/locales/en.js'
 import RU_LOCALE from '../imports/locales/ru.js'
 
-import Landing from '../imports/ui/Landing.jsx'
+import DashboardContainer from '../imports/containers/DashboardContainer.jsx'
 import TripFormContainer from '../imports/containers/TripFormContainer.jsx'
 import TripContainer from '../imports/containers/TripContainer.jsx'
 
@@ -36,7 +36,7 @@ toastr.options = {
 const renderRoutes = () => (
   <Router history={browserHistory}>
     <Redirect from="/" to="/en"/>
-    <Route path="/:locale" component={Landing}/>
+    <Route path="/:locale" component={DashboardContainer}/>
     <Route path="/:locale/new" component={TripFormContainer}/>
     <Route path="/:locale/trips/:trip_id" component={TripContainer}/>
   </Router>

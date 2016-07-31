@@ -19,7 +19,8 @@ Meteor.methods({
 
     const newTripId = Trips.insert({
       name: name,
-      userId: Meteor.userId()
+      userId: Meteor.userId(),
+      createdAt: Date.now()
     });
 
     for (let list of BasicTemplate) {
@@ -51,5 +52,18 @@ Meteor.methods({
     check(name, String);
 
     Trips.update(tripId, { $set: { name: name.trim() } });
+  },
+  'trips.delete' (tripId) {
+    check(tripId, String);
+
+    const trip = Trips.findOne( { _id: tripId } );
+
+    if (!Meteor.userId() || Meteor.userId() !== trip.userId) {
+      return;
+    }
+
+    Items.remove({ tripId: tripId });
+    Lists.remove({ tripId: tripId });
+    Trips.remove(tripId);
   }
 });

@@ -43,11 +43,17 @@ const RU_LOCALE = {
   confirmations: {
     header: 'Вы уверены?',
     list_content: 'Список будет удален со всеми вещами в нем!',
+    trip_content: 'План будет удален безвозвратно!',
     yes_delete: 'Да, удалить!',
     no_keep: 'Нет, оставить'
   },
   notifications: {
     link_copied: 'Ссылка скопирована в буфер обмена'
+  },
+  trips: {
+    header: 'Мои планы',
+    new_trip: 'Новый план',
+    no_trips: 'Ни одного плана ещё не добавлено'
   }
 };
 
