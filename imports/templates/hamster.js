@@ -12,22 +12,22 @@ const HamsterTemplate = [
       },
       {
         label: 'Трусы Андрей',
-        count: '[days]'
+        count: '[nights]'
       },
       {
         label: 'Трусы Юля',
-        count: '[days]'
+        count: '[nights]'
       },
       {
         label: 'Бюстгалтер',
         count: 2
       },
       {
-        label: 'Футболка Андрею спать',
+        label: 'Пижама Андрей',
         count: 1
       },
       {
-        label: 'Ночнушка Юля',
+        label: 'Пижама Юля',
         count: 1
       },
       {
@@ -39,24 +39,16 @@ const HamsterTemplate = [
         count: 1
       },
       {
-        label: 'Кепки или шляпы',
+        label: 'Кепка/шляпа',
         count: 2
       },
       {
-        label: 'Футболки Андрей',
-        count: '[days]'
+        label: 'Футболки/рубашки Андрей',
+        count: '[days]/2+2'
       },
       {
-        label: 'Футболки Юля',
-        count: '[days]'
-      },
-      {
-        label: 'Рубашка Андрея',
-        count: 1
-      },
-      {
-        label: 'Рубашка коричневая Юля',
-        count: 1
+        label: 'Футболки/блузки Юля',
+        count: '[days]/2'
       },
       {
         label: 'Шорты Андрей',
@@ -71,24 +63,12 @@ const HamsterTemplate = [
         count: 1
       },
       {
-        label: 'Шорты джинсовые Юля',
-        count: 1
+        label: 'Шорты/юбки Юля',
+        count: 2
       },
       {
-        label: 'Платье белое Армани',
-        count: 1
-      },
-      {
-        label: 'Блузка синяя Юля',
-        count: 1
-      },
-      {
-        label: 'Платье оранжевое Юля',
-        count: 1
-      },
-      {
-        label: 'Платье Есприт Юля',
-        count: 1
+        label: 'Платье Юля',
+        count: 2
       }
     ]
   },
@@ -104,11 +84,11 @@ const HamsterTemplate = [
         count: 1
       },
       {
-        label: 'Коричневые босоножки Юля',
+        label: 'Вторая пара Юля',
         count: 1
       },
       {
-        label: 'Ботинки коричневые Андрей',
+        label: 'Вторая пара Андрей',
         count: 1
       }
     ]
@@ -125,7 +105,7 @@ const HamsterTemplate = [
         count: 1
       },
       {
-        label: 'Кофта в полосочку Юля',
+        label: 'Кофта Юля',
         count: 1
       },
       {
@@ -133,11 +113,11 @@ const HamsterTemplate = [
         count: 1
       },
       {
-        label: 'Пиджак Юля',
+        label: 'Футболка Юля',
         count: 1
       },
       {
-        label: 'Кофта Есприт Андрей',
+        label: 'Кофта Андрей',
         count: 1
       },
       {
@@ -155,7 +135,7 @@ const HamsterTemplate = [
     ]
   },
   {
-    label: 'Аптечка:',
+    label: 'Аптечка',
     items: [
       {
         label: 'Цитрамон',
@@ -243,7 +223,7 @@ const HamsterTemplate = [
     label: 'Сумки с собой',
     items: [
       {
-        label: 'Сумка маленькая коричневая юля',
+        label: 'Сумка маленькая Юля',
         count: 1
       },
       {
@@ -268,7 +248,11 @@ const HamsterTemplate = [
         count: 2
       },
       {
-        label: 'Деньги (кредитка)',
+        label: 'Деньги',
+        count: 1000
+      },
+      {
+        label: 'Кредитка',
         count: 1
       },
       {
@@ -277,7 +261,7 @@ const HamsterTemplate = [
       },
       {
         label: 'Планшет',
-        count: 2
+        count: 1
       },
       {
         label: 'Наушники',
@@ -314,10 +298,6 @@ const HamsterTemplate = [
       {
         label: 'Путеводитель',
         count: 1
-      },
-      {
-        label: 'Журналы',
-        count: 2
       },
       {
         label: 'Ручка',
@@ -395,7 +375,7 @@ const HamsterTemplate = [
       },
       {
         label: 'Влажные салфетки',
-        count: 8
+        count: '[days]/3'
       },
       {
         label: 'Крем от загара',
@@ -419,7 +399,7 @@ const HamsterTemplate = [
       },
       {
         label: 'Зуб. щетки',
-        count: 1
+        count: 2
       },
       {
         label: 'Мочалка',
@@ -442,7 +422,7 @@ const HamsterTemplate = [
         count: 1
       },
       {
-        label: 'Крем Роса',
+        label: 'Крем для лица',
         count: 1
       },
       {
@@ -455,14 +435,14 @@ const HamsterTemplate = [
       },
       {
         label: 'Резинки для волос',
+        count: 2
+      },
+      {
+        label: 'Прокладки (уп)',
         count: 1
       },
       {
-        label: 'Прокладки',
-        count: 1
-      },
-      {
-        label: 'Тампоны',
+        label: 'Тампоны (уп)',
         count: 1
       },
       {
