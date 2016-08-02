@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-MAINTAINER Andrey Marchenko, spope@projectricochet.com
+MAINTAINER Andrey Marchenko, igendou@gmail.com
 
 RUN mkdir /home/app
 
