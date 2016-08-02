@@ -15,23 +15,31 @@ RUN apt-get update -q && apt-get clean
 RUN apt-get install curl -y \
   # Install Meteor
   && (curl https://install.meteor.com/ | sh) \
+
+  # Install the version of Node.js we need.
+  && cd /home/app \
+  && bash -c 'curl "https://nodejs.org/dist/v4.4.7/node-v4.4.7-linux-x64.tar.gz" > /home/app/required-node-linux-x64.tar.gz' \
+  && cd /usr/local && tar --strip-components 1 -xzf /home/app/required-node-linux-x64.tar.gz \
+  && rm /home/app/required-node-linux-x64.tar.gz \
+
+  # Build the NPM packages needed for build
+  && cd /home/app \
+  && npm install \
+
   # Build the Meteor app
   && cd /home/app \
   && meteor build ./build --directory \
 
-  # Install the version of Node.js we need.
-  && cd /home/app/build/bundle \
-  && bash -c 'curl "https://nodejs.org/dist/$(<.node_version.txt)/node-$(<.node_version.txt)-linux-x64.tar.gz" > /home/app/build/required-node-linux-x64.tar.gz' \
-  && cd /usr/local && tar --strip-components 1 -xzf /home/app/build/required-node-linux-x64.tar.gz \
-  && rm /home/app/build/required-node-linux-x64.tar.gz \
-
-  # Build the NPM packages needed for build
+  # Build the NPM packages needed for server (really?)
   && cd /home/app/build/bundle/programs/server \
   && npm install \
 
   # Get rid of Meteor. We're done with it.
   && rm /usr/local/bin/meteor \
   && rm -rf ~/.meteor \
+
+  # remove node modules
+  && rm -rf /home/app/node_modules \
 
   #no longer need curl
   && apt-get --purge autoremove curl -y
