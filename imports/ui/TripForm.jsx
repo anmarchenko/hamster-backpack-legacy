@@ -26,9 +26,9 @@ const TripForm = (props) => (
           </li>
         </ol>
         <div className="controls">
-          <button className="next"></button>
+          <button className="next hidden-xs"></button>
           <div className="progress"></div>
-          <span className="number">
+          <span className="number hidden-xs">
             <span className="number-current"></span>
             <span className="number-total"></span>
           </span>
@@ -38,6 +38,11 @@ const TripForm = (props) => (
           <span className="error-message number-error">
             <Translate value="new_form.error_number"/>
           </span>
+        </div>
+        <div className="mobile-controls shown-xs">
+          <button className="button-next">
+            Next
+          </button>
         </div>
       </div>
     </form>

@@ -7,8 +7,8 @@ const Navbar = (props) => {
   let userEmail = null;
   if(Meteor.userId()) {
     logInOrOut = (
-      <li className="navbar-item">
-        <a className="navbar-link" href="javascript:void(0)" onClick={props.onLogout}>
+      <li className="navbar-item" onClick={props.onLogout}>
+        <a className="navbar-link" href="javascript:void(0)">
           <Translate value="navbar.logout" />
         </a>
       </li>
@@ -37,7 +37,8 @@ const Navbar = (props) => {
       <div className="container">
         <ul className="navbar-list">
           <li className="navbar-item">
-            <a className="navbar-link" href={`/${props.locale}`}>Hamster's Backpack</a>
+            <a className="navbar-link hidden-xs" href={`/${props.locale}`}>Hamster's Backpack</a>
+            <a className="navbar-link shown-xs" href={`/${props.locale}`}>HB</a>
           </li>
         </ul>
         <ul className="navbar-list navbar-menu right">

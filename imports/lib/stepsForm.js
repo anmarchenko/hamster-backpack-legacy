@@ -52,6 +52,7 @@ stepsForm.prototype._init = function () {
 
   // next question control
   this.ctrlNext = this.el.querySelector('button.next');
+  this.ctrlNextMobile = this.el.querySelector('button.button-next');
 
   // progress bar
   this.progress = this.el.querySelector('div.progress');
@@ -91,6 +92,11 @@ stepsForm.prototype._initEvents = function () {
 
   // show next question
   this.ctrlNext.addEventListener('click', function (ev) {
+    ev.preventDefault();
+    self._nextQuestion();
+  });
+  
+  this.ctrlNextMobile.addEventListener('click', function (ev) {
     ev.preventDefault();
     self._nextQuestion();
   });
