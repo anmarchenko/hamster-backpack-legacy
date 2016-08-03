@@ -95,7 +95,7 @@ stepsForm.prototype._initEvents = function () {
     ev.preventDefault();
     self._nextQuestion();
   });
-  
+
   this.ctrlNextMobile.addEventListener('click', function (ev) {
     ev.preventDefault();
     self._nextQuestion();
@@ -106,17 +106,20 @@ stepsForm.prototype._initEvents = function () {
     var keyCode = ev.keyCode || ev.which;
     // enter
     if (keyCode === 13) {
+      $(ev.target).trigger('blur');
+      $(ev.target).trigger('change');
       ev.preventDefault();
       self._nextQuestion();
     }
   });
 
-  // disable tab
+  // on tab - go next
   this.el.addEventListener('keydown', function (ev) {
     var keyCode = ev.keyCode || ev.which;
     // tab
     if (keyCode === 9) {
       ev.preventDefault();
+      self._nextQuestion();
     }
   });
 };

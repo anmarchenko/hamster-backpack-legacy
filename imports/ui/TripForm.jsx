@@ -54,4 +54,4 @@ TripForm.propTypes = {
   nightsCount: PropTypes.number
 }
 
-export default TripForm
+export default TripForm;
