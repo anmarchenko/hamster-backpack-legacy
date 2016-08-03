@@ -31,7 +31,6 @@ export default class TripFormContainer extends Component {
     } );
   }
   componentWillUnmount() {
-    // fixme: find better way
     $('body').removeClass('trip-form-background')
   }
 
@@ -65,7 +64,7 @@ export default class TripFormContainer extends Component {
   render() {
     return (
       <div>
-        <NavbarContainer />
+        <NavbarContainer locale={this.props.routeParams.locale} />
         <TripForm fieldChangeHandler={this.fieldChanged.bind(this)} nightsCount={this.state.nights} />
       </div>
     )
