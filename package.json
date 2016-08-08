@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "eslint": "^3.2.2",
-    "eslint-plugin-meteor": "^3.6.0",
-    "eslint-plugin-react": "^5.2.2"
+    "eslint-plugin-meteor": "^4.0.0",
+    "eslint-plugin-react": "^6.0.0"
   }
 }

@@ -29,15 +29,39 @@ const EN_LOCALE = {
   templates: {
     lists: {
       hygiene: 'Personal hygiene',
-      stuff: 'Docs and necessary things'
+      stuff: 'Docs and stuff',
+      cloth: 'Cloth',
+      shoes: 'Shoes'
     },
     items: {
       gel: 'Desinfection gel for hands',
       hygiene_tissues: 'Desinfection tissues',
+      toothbrush: 'Toothbrush',
+      suncream: 'Sun cream',
+      condoms: 'Condoms',
 
       passport: 'Passport',
       money: 'Money and credit cards',
-      insurance: 'Travel insurance'
+      insurance: 'Travel insurance',
+      creditcard: 'Credit card',
+      headphones: 'Headphones',
+      camera: 'Photo camera',
+      charging: 'Charging device',
+      guide: 'Travel guide',
+      tickets: 'Tickets',
+      sunglasses: 'Sunglasses',
+
+      socks: 'Socks',
+      underpants: 'Underpants',
+      sleeping: 'Pyjamas',
+      swimming: 'Swimming trunks',
+      cap: 'Cap',
+      shorts: 'Shorts',
+      jeans: 'Jeans',
+      shirts: 'Shirts',
+
+      slippers: 'Slippers',
+      secondpair: 'Second pair of shoes'
     }
   },
   confirmations: {

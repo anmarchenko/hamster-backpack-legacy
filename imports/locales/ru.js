@@ -29,15 +29,39 @@ const RU_LOCALE = {
   templates: {
     lists: {
       hygiene: 'Гигиена',
-      stuff: 'С собой'
+      stuff: 'С собой',
+      cloth: 'Одежда',
+      shoes: 'Shoes'
     },
     items: {
       gel: 'Гель для рук',
       hygiene_tissues: 'Влажные салфетки',
+      toothbrush: 'Зубная щетка',
+      suncream: 'Крем от загара',
+      condoms: 'Презервативы',
 
       passport: 'Паспорта',
       money: 'Деньги и кредитка',
-      insurance: 'Страховки'
+      insurance: 'Страховки',
+      creditcard: 'Кредитка',
+      headphones: 'Наушники',
+      camera: 'Фотоаппарат',
+      charging: 'Зарядное устройство',
+      guide: 'Путеводитель',
+      tickets: 'Билеты',
+      sunglasses: 'Солнечные очки',
+
+      socks: 'Носки',
+      underpants: 'Трусы',
+      sleeping: 'Пижама',
+      swimming: 'Плавки',
+      cap: 'Кепка/шляпа',
+      shorts: 'Шорты',
+      jeans: 'Джинсы',
+      shirts: 'Футболки/рубашки',
+
+      slippers: 'Тапочки',
+      secondpair: 'Вторая пара обуви'
     }
   },
   confirmations: {
