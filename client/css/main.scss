@@ -241,6 +241,11 @@ button.button-primary {
           margin-right: 1em;
           cursor: pointer;
           overflow: hidden;
+
+          -webkit-transition: all 0.50s;
+          -moz-transition: all 0.50s;
+          -o-transition: all 0.50s;
+          transition: all 0.50s;
         }
 
         .item-count {
@@ -289,6 +294,11 @@ button.button-primary {
             width: 24px;
             height: 24px;
           }
+
+          -webkit-transition: all 0.50s;
+          -moz-transition: all 0.50s;
+          -o-transition: all 0.50s;
+          transition: all 0.50s;
         }
 
         &.checked {
