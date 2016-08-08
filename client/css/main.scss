@@ -252,15 +252,34 @@ button.button-primary {
 
         .item-check {
           margin-right: 1em;
+          min-width: 27px;
           input {
             appearance: none;
             cursor: pointer;
+            position: relative;
           }
           input:focus {
             outline: none;
           }
-          input:after {
+          input:before {
             content: url('images/unchecked.svg');
+            opacity: 1;
+            position: absolute;
+            -webkit-transition: all 0.50s;
+            -moz-transition: all 0.50s;
+            -o-transition: all 0.50s;
+            transition: all 0.50s;
+            left: 0;
+          }
+          input:after {
+            content: url('images/checked_light.svg');
+            opacity: 0;
+            -webkit-transition: all 0.50s;
+            -moz-transition: all 0.50s;
+            -o-transition: all 0.50s;
+            transition: all 0.50s;
+            position: absolute;
+            left: 0;
           }
         }
 
@@ -274,8 +293,11 @@ button.button-primary {
 
         &.checked {
           .item-check {
+            input:before {
+              opacity: 0;
+            }
             input:after {
-              content: url('images/checked_light.svg');
+              opacity: 1;
             }
           }
 
@@ -384,8 +406,8 @@ button.button-primary {
       }
 
       img {
-        width: 28px;
-        height: 28px;
+        width: 24px;
+        height: 24px;
         vertical-align: middle;
         margin-left: .2em;
       }
