@@ -1,7 +1,8 @@
 const RU_LOCALE = {
   navbar: {
-    login: 'Войти через Google',
-    logout: 'Выйти'
+    login: 'Войти',
+    logout: 'Выйти',
+    change_locale: 'EN'
   },
   landing: {
     step1_header: 'Создай свой список вещей',

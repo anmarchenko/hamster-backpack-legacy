@@ -32,13 +32,24 @@ class NavbarContainer extends Component {
     });
   }
 
+  changeLocale() {
+    let newPath = undefined;
+    if (this.props.routeParams.locale === 'en') {
+      newPath = this.props.location.pathname.replace('/en', '/ru');
+    } else {
+      newPath = this.props.location.pathname.replace('/ru', '/en');
+    }
+    window.location.href = newPath;
+  }
+
   render() {
     return (
       <Navbar
         onLogin={this.login.bind(this)}
         onLogout={this.logout.bind(this)}
+        onChangeLocale={this.changeLocale.bind(this)}
         user={this.props.user}
-        locale={this.props.locale}
+        locale={this.props.routeParams.locale}
       />
     )
   }
@@ -47,8 +58,13 @@ class NavbarContainer extends Component {
 NavbarContainer.propTypes = {
   user: PropTypes.object,
   onUserChange: PropTypes.func,
-  locale: PropTypes.string
+  routeParams: PropTypes.object,
+  location: PropTypes.object
 }
+
+NavbarContainer.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 
 export default createContainer(() => {
   Meteor.subscribe('currentUserData');

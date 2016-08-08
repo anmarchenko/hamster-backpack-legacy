@@ -64,7 +64,7 @@ export default class TripFormContainer extends Component {
   render() {
     return (
       <div>
-        <NavbarContainer locale={this.props.routeParams.locale} />
+        <NavbarContainer routeParams={this.props.routeParams} location={this.props.location} />
         <TripForm fieldChangeHandler={this.fieldChanged.bind(this)} nightsCount={this.state.nights} />
       </div>
     )
@@ -72,7 +72,8 @@ export default class TripFormContainer extends Component {
 }
 
 TripFormContainer.propTypes = {
-  routeParams: PropTypes.object
+  routeParams: PropTypes.object,
+  location: PropTypes.object
 };
 
 TripFormContainer.contextTypes = {

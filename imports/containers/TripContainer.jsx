@@ -75,7 +75,7 @@ class TripContainer extends Component {
   render() {
     return (
       <span>
-        <NavbarContainer locale={this.props.routeParams.locale}/>
+        <NavbarContainer routeParams={this.props.routeParams} location={this.props.location} />
         <Trip
           tripName={this.props.trip.name || ''}
           tripId={this.props.trip._id || ''}
@@ -98,7 +98,8 @@ class TripContainer extends Component {
 TripContainer.propTypes = {
   trip: PropTypes.object,
   lists: PropTypes.array,
-  routeParams: PropTypes.object
+  routeParams: PropTypes.object,
+  location: PropTypes.object
 };
 
 TripContainer.contextTypes = {

@@ -15,7 +15,7 @@ const Navbar = (props) => {
     )
     if (props.user && props.user.services && props.user.services.google) {
       userEmail = (
-        <li className="navbar-item">
+        <li className="navbar-item hidden-xs">
           <a className="navbar-link" href={`/${props.locale}`}>
             {props.user.services.google.email}
           </a>
@@ -42,6 +42,11 @@ const Navbar = (props) => {
           </li>
         </ul>
         <ul className="navbar-list navbar-menu right">
+          <li className="navbar-item">
+            <a className="navbar-link" href="javascript:void(0)" onClick={props.onChangeLocale}>
+              <Translate value="navbar.change_locale" />
+            </a>
+          </li>
           {userEmail}
           {logInOrOut}
         </ul>
@@ -53,6 +58,7 @@ const Navbar = (props) => {
 Navbar.propTypes = {
   onLogin: PropTypes.func.isRequired,
   onLogout: PropTypes.func.isRequired,
+  onChangeLocale: PropTypes.func,
   user: PropTypes.object,
   locale: PropTypes.string
 }

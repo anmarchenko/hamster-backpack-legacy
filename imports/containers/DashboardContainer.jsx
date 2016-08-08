@@ -40,10 +40,7 @@ class DashboardContainer extends Component {
   render() {
     return (
       <span>
-        <NavbarContainer
-          locale={this.props.routeParams.locale}
-          onUserChange={this._handleUserChange.bind(this)}
-        />
+        <NavbarContainer onUserChange={this._handleUserChange.bind(this)} routeParams={this.props.routeParams} location={this.props.location} />
         { this.renderContent() }
       </span>
     )
@@ -52,7 +49,8 @@ class DashboardContainer extends Component {
 
 DashboardContainer.propTypes = {
   trips: PropTypes.array,
-  routeParams: PropTypes.object
+  routeParams: PropTypes.object,
+  location: PropTypes.object
 };
 
 DashboardContainer.contextTypes = {

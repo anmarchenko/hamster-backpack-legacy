@@ -1,7 +1,8 @@
 const EN_LOCALE = {
   navbar: {
-    login: 'Login with Google',
-    logout: 'Logout'
+    login: 'Login',
+    logout: 'Logout',
+    change_locale: 'RU'
   },
   landing: {
     step1_header: 'Create list of things to pack',
