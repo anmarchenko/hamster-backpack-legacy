@@ -1,2 +1,2 @@
-sudo docker build -t altmer/hamsters-backpack .
-sudo docker push altmer/hamsters-backpack
+docker build -t altmer/hamsters-backpack .
+docker push altmer/hamsters-backpack
