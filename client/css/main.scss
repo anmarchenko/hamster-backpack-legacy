@@ -424,3 +424,20 @@ button.button-primary {
     }
   }
 }
+
+
+// animations
+.slideup-enter {
+  max-height : 0;
+  transition : all .3s ease-in;
+}
+.slideup-enter.slideup-enter-active {
+  max-height : 1000px;
+}
+.slideup-leave {
+  max-height : 1000px;
+  transition : all .3s ease-out;
+}
+.slideup-leave.slideup-leave-active {
+  max-height : 0;
+}

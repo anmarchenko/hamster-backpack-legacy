@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { I18n } from 'react-i18nify';
 
 import {createContainer} from 'meteor/react-meteor-data';
 
@@ -34,12 +35,16 @@ class NavbarContainer extends Component {
 
   changeLocale() {
     let newPath = undefined;
+    let newLocale = undefined;
     if (this.props.routeParams.locale === 'en') {
       newPath = this.props.location.pathname.replace('/en', '/ru');
+      newLocale = 'ru';
     } else {
       newPath = this.props.location.pathname.replace('/ru', '/en');
+      newLocale = 'en';
     }
-    window.location.href = newPath;
+    this.context.router.push(newPath);
+    I18n.setLocale(newLocale)
   }
 
   render() {
