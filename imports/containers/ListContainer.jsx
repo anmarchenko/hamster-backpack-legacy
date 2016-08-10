@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {createContainer} from 'meteor/react-meteor-data';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import List from '../ui/List.jsx';
 import ItemContainer from './ItemContainer.jsx';
@@ -33,11 +34,13 @@ class ListContainer extends Component {
 
   renderItems() {
     return (
-      <div>
+      <ReactCSSTransitionGroup transitionName="item" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
         {this.props.items.map(function(item) {
-          return (<ItemContainer key={item._id} item={item}/>)
+          return (
+              <ItemContainer key={item._id} item={item}/>
+          )
         })}
-      </div>
+      </ReactCSSTransitionGroup>
     )
   }
 
@@ -78,7 +81,6 @@ class ListContainer extends Component {
         changeValue={this.editValueChange.bind(this)}
         inputKeyPressed={this.inputKeyPressed.bind(this)}
       >
-
         {this.renderItems()}
         <NewItemContainer listId={this.props.list._id} tripId={this.props.list.trip_id} />
       </List>
