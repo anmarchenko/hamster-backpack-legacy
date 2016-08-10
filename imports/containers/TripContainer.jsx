@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
-import {I18n} from 'react-i18nify';
 import {createContainer} from 'meteor/react-meteor-data';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import {I18n} from 'react-i18nify';
 
 import Trip from '../ui/Trip.jsx';
 import ListContainer from './ListContainer.jsx';
@@ -64,10 +65,14 @@ class TripContainer extends Component {
   renderLists() {
     return (
       <div className="tasks-area">
-        {this.props.lists.map(function(list) {
-          return (<ListContainer key={list._id} list={list}/>)
-        })
-        }
+        <ReactCSSTransitionGroup transitionName="list" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+          {this.props.lists.map(function(list) {
+              return (
+                  <ListContainer key={list._id} list={list}/>
+              )
+            })
+          }
+        </ReactCSSTransitionGroup>  
       </div>
     )
   }

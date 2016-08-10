@@ -169,11 +169,15 @@ button.button-primary {
       }
     }
   }
-  .tasks-area {
-    margin-top: 40px;
+  .tasks-area > span {
+    width: 100%;
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
+  }
+
+  .tasks-area {
+    margin-top: 40px;
     .tasks-list {
       box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
       margin-right: 3%;
@@ -425,16 +429,15 @@ button.button-primary {
   }
 }
 
-
 //animations
 
 .item-enter {
   // max-height : 0;
-  transform: translate(-10px);
+  transform: translateY(-5px);
   transition : all .5s ease-in;
 }
 .item-enter.item-enter-active {
-  transform: translate(0%);
+  transform: translateY(0%);
   transition: transform .5s ease-in-out;
 }
 .item-leave {
@@ -444,20 +447,33 @@ button.button-primary {
 .item-leave.item-leave-active {
   max-height : 0;
 }
-// .slideup-enter {
-//   opacity: 0.01;
-// }
-//
-// .slideup-enter.slideup-enter-active {
-//   opacity: 1;
-//   transition: opacity 500ms ease-in;
-// }
-//
-// .slideup-leave {
-//   opacity: 1;
-// }
-//
-// .slideup-leave.slideup-leave-active {
-//   opacity: 0.01;
-//   transition: opacity 300ms ease-in;
-// }
+
+.list-enter {
+  transform: translateY(-30px);
+}
+.list-enter.list-enter-active {
+  transform: translateY(0%);
+  transition: transform .5s ease-in-out;
+}
+.list-leave {
+  opacity: 1;
+  transition : opacity .3s ease-out;
+}
+.list-leave.list-leave-active {
+  opacity: 0.01;
+}
+
+.trip-enter {
+  opacity: 0.01;
+}
+.trip-enter.trip-enter-active {
+  opacity: 1;
+  transition: transform .5s ease-in-out;
+}
+.trip-leave {
+  opacity: 1;
+  transition : opacity .5s ease-out;
+}
+.trip-leave.trip-leave-active {
+  opacity: 0.01;
+}
