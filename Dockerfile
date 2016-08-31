@@ -18,7 +18,7 @@ RUN apt-get install curl -y \
 
   # Install the version of Node.js we need.
   && cd /home/app \
-  && bash -c 'curl "https://nodejs.org/dist/v4.4.7/node-v4.4.7-linux-x64.tar.gz" > /home/app/required-node-linux-x64.tar.gz' \
+  && bash -c 'curl "https://nodejs.org/dist/v4.5.0/node-v4.5.0-linux-x64.tar.gz" > /home/app/required-node-linux-x64.tar.gz' \
   && cd /usr/local && tar --strip-components 1 -xzf /home/app/required-node-linux-x64.tar.gz \
   && rm /home/app/required-node-linux-x64.tar.gz \
 
