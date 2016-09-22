@@ -16,7 +16,7 @@
     "react-dom": "^15.3.1",
     "react-i18nify": "^1.4.4",
     "react-router": "^2.7.0",
-    "sweetalert2": "^4.2.4",
+    "sweetalert2": "^5.0.7",
     "toastr": "^2.1.2"
   },
   "devDependencies": {
