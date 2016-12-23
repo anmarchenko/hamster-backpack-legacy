@@ -15,6 +15,12 @@ Meteor.methods({
 
     Lists.update(listId, { $set: { name: name.trim() } });
   },
+  'lists.updateCollapsed' (listId, collapsed) {
+    check(listId, String);
+    check(collapsed, Boolean);
+
+    Lists.update(listId, { $set: { collapsed: collapsed } });
+  },
   'lists.create' (tripId, name) {
     check(tripId, String);
     check(name, String);

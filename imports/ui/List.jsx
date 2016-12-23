@@ -1,7 +1,19 @@
 import React, {PropTypes} from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import ListHeader from './ListHeader';
 import ListEditHeader from './ListEditHeader';
+
+const ListContent = (p) => {
+  if (!p.collapsed) {
+    return (
+      <ul>
+        {p.children}
+      </ul>
+    );
+  }
+  return null;
+}
 
 const List = (props) => (
   <div className="tasks-list">
@@ -13,10 +25,10 @@ const List = (props) => (
         />)
       : (<ListHeader name={props.name} clickDelete={props.clickDelete} startEdit={props.startEdit}
                      toggleCollapsed={props.toggleCollapsed} collapsed={props.collapsed}/>)
-}
-    <ul>
-      {props.children}
-    </ul>
+     }
+     <ReactCSSTransitionGroup transitionName="collapse" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+       {ListContent(props)}
+     </ReactCSSTransitionGroup>
   </div>
 )
 

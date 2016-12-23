@@ -15,8 +15,7 @@ class ListContainer extends Component {
     super(props);
     this.state = {
       edit: false,
-      editNameText: '',
-      collapsed: false
+      editNameText: ''
     };
   }
 
@@ -65,9 +64,8 @@ class ListContainer extends Component {
   }
 
   toggleCollapsed() {
-    this.setState({
-      collapsed: !this.state.collapsed
-    })
+    console.log('called')
+    Meteor.call('lists.updateCollapsed', this.props.list._id, !this.props.list.collapsed);
   }
 
   inputKeyPressed(event) {
@@ -87,7 +85,7 @@ class ListContainer extends Component {
         cancelEdit={this.cancelEdit.bind(this)}
         changeValue={this.editValueChange.bind(this)}
         inputKeyPressed={this.inputKeyPressed.bind(this)}
-        collapsed={this.state.collapsed}
+        collapsed={this.props.list.collapsed || false}
         toggleCollapsed={this.toggleCollapsed.bind(this)}
       >
         {this.renderItems()}

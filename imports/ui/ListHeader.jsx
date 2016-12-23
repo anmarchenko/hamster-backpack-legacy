@@ -1,15 +1,13 @@
 import React, {PropTypes} from 'react';
 
 const renderCollapseButton = (collapsed, toggleCollapsed) => {
-  let image = null;
+  let className = null;
   if (collapsed) {
-    image = (<img src="/images/arrow-down.svg"/>);
-  } else {
-    image = (<img src="/images/arrow-down.svg"/>);
+    className = 'rotated';
   }
   return (
     <div className="list-collapse" onClick={toggleCollapsed}>
-      {image}
+      <img className={className} src="/images/arrow-down.svg"/>
     </div>
   );
 };
@@ -19,7 +17,7 @@ const ListHeader = (props) => (
     <div className="list-name" onClick={props.startEdit}>
       {props.name}
     </div>
-    {renderCollapseButton()}
+    {renderCollapseButton(props.collapsed, props.toggleCollapsed)}
     <div className="list-delete" onClick={props.clickDelete}>
       <img src="/images/trash.svg"/>
     </div>
