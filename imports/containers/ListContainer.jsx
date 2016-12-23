@@ -15,7 +15,8 @@ class ListContainer extends Component {
     super(props);
     this.state = {
       edit: false,
-      editNameText: ''
+      editNameText: '',
+      collapsed: false
     };
   }
 
@@ -63,6 +64,12 @@ class ListContainer extends Component {
     this.setState({edit: false, editNameText: ''});
   }
 
+  toggleCollapsed() {
+    this.setState({
+      collapsed: !this.state.collapsed
+    })
+  }
+
   inputKeyPressed(event) {
     if (event.key === 'Enter') {
       this.updateName();
@@ -80,6 +87,8 @@ class ListContainer extends Component {
         cancelEdit={this.cancelEdit.bind(this)}
         changeValue={this.editValueChange.bind(this)}
         inputKeyPressed={this.inputKeyPressed.bind(this)}
+        collapsed={this.state.collapsed}
+        toggleCollapsed={this.toggleCollapsed.bind(this)}
       >
         {this.renderItems()}
         <NewItemContainer listId={this.props.list._id} tripId={this.props.list.trip_id} />

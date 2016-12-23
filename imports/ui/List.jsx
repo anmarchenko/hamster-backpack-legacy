@@ -11,7 +11,8 @@ const List = (props) => (
             inputKeyPressed={props.inputKeyPressed}
             cancelEdit={props.cancelEdit}
         />)
-      : (<ListHeader name={props.name} clickDelete={props.clickDelete} startEdit={props.startEdit}/>)
+      : (<ListHeader name={props.name} clickDelete={props.clickDelete} startEdit={props.startEdit}
+                     toggleCollapsed={props.toggleCollapsed} collapsed={props.collapsed}/>)
 }
     <ul>
       {props.children}
@@ -29,7 +30,9 @@ List.propTypes = {
   changeValue: PropTypes.func.isRequired,
   finishEdit: PropTypes.func.isRequired,
   inputKeyPressed: PropTypes.func.isRequired,
-  children: PropTypes.array
+  children: PropTypes.array,
+  collapsed: PropTypes.bool.isRequired,
+  toggleCollapsed: PropTypes.func.isRequired
 };
 
 export default List;
