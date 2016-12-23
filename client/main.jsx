@@ -1,7 +1,6 @@
 import React from 'react'
 import {render} from 'react-dom'
 import {Router, Route, browserHistory, Redirect} from 'react-router'
-import SweetAlert from 'sweetalert2';
 import {Meteor} from 'meteor/meteor'
 
 import {I18n} from 'react-i18nify'
@@ -44,6 +43,5 @@ const renderRoutes = () => (
 
 Meteor.startup(() => {
   I18n.loadTranslations({en: EN_LOCALE, ru: RU_LOCALE});
-  SweetAlert.init();
   render(renderRoutes(), document.getElementById('hamsters-backpack-app'));
 });

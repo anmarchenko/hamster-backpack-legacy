@@ -3,7 +3,7 @@ import React, {Component, PropTypes} from 'react'
 import {Translate} from 'react-i18nify'
 
 // Landing page with CTA button
-export default class Landing extends Component {
+class Landing extends Component {
   render() {
     return (
       <div className="container">
