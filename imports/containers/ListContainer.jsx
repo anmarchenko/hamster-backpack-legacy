@@ -74,6 +74,17 @@ class ListContainer extends Component {
     }
   }
 
+  listDone() {
+    const { items } = this.props;
+    if (!items || items.length === 0) {
+      return false;
+    }
+
+    return items.reduce((acc, item) => {
+      return acc && item.checked;
+    }, true);
+  }
+
   render() {
     return (
       <List name={this.props.list.name}
@@ -87,6 +98,7 @@ class ListContainer extends Component {
         inputKeyPressed={this.inputKeyPressed.bind(this)}
         collapsed={this.props.list.collapsed || false}
         toggleCollapsed={this.toggleCollapsed.bind(this)}
+        done={this.listDone()}
       >
         {this.renderItems()}
         <NewItemContainer listId={this.props.list._id} tripId={this.props.list.trip_id} />

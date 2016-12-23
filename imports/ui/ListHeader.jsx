@@ -12,8 +12,15 @@ const renderCollapseButton = (collapsed, toggleCollapsed) => {
   );
 };
 
+const headerClass = (done) => {
+  if (done) {
+    return 'done';
+  }
+  return null;
+}
+
 const ListHeader = (props) => (
-  <header>
+  <header className={headerClass(props.done)}>
     <div className="list-name" onClick={props.startEdit}>
       {props.name}
     </div>
@@ -29,7 +36,8 @@ ListHeader.propTypes = {
   clickDelete: PropTypes.func.isRequired,
   startEdit: PropTypes.func.isRequired,
   collapsed: PropTypes.bool.isRequired,
-  toggleCollapsed: PropTypes.func.isRequired
+  toggleCollapsed: PropTypes.func.isRequired,
+  done: PropTypes.bool.isRequired
 };
 
 export default ListHeader;

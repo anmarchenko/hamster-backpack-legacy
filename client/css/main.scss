@@ -236,6 +236,13 @@ button.button-primary {
             width: 100%;
           }
         }
+
+        &.done {
+          opacity: .7;
+          .list-name {
+            text-decoration: line-through;
+          }
+        }
       }
       ul {
         list-style: none;

@@ -24,7 +24,7 @@ const List = (props) => (
             cancelEdit={props.cancelEdit}
         />)
       : (<ListHeader name={props.name} clickDelete={props.clickDelete} startEdit={props.startEdit}
-                     toggleCollapsed={props.toggleCollapsed} collapsed={props.collapsed}/>)
+                     toggleCollapsed={props.toggleCollapsed} collapsed={props.collapsed} done={props.done} />)
      }
      <ReactCSSTransitionGroup transitionName="collapse" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
        {ListContent(props)}
@@ -44,7 +44,8 @@ List.propTypes = {
   inputKeyPressed: PropTypes.func.isRequired,
   children: PropTypes.array,
   collapsed: PropTypes.bool.isRequired,
-  toggleCollapsed: PropTypes.func.isRequired
+  toggleCollapsed: PropTypes.func.isRequired,
+  done: PropTypes.bool.isRequired
 };
 
 export default List;
