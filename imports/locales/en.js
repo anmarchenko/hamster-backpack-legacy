@@ -77,6 +77,8 @@ const EN_LOCALE = {
   },
   trips: {
     header: 'My trips',
+    days: 'Days',
+    nights: 'Nights',
     new_trip: 'New trip',
     no_trips: 'No trips created yet'
   }

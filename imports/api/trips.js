@@ -17,12 +17,14 @@ Meteor.methods({
 
     const newTripId = Trips.insert({
       name: name,
+      days: days,
+      nights: nights,
       userId: Meteor.userId(),
       createdAt: Date.now()
     });
 
     Templator.process(newTripId, days, nights, Meteor.user());
-    
+
     return newTripId;
   },
   'trips.update' (tripId, name) {

@@ -72,7 +72,7 @@ class TripContainer extends Component {
               )
             })
           }
-        </ReactCSSTransitionGroup>  
+        </ReactCSSTransitionGroup>
       </div>
     )
   }
@@ -84,6 +84,8 @@ class TripContainer extends Component {
         <Trip
           tripName={this.props.trip.name || ''}
           tripId={this.props.trip._id || ''}
+          days={this.props.trip.days}
+          nights={this.props.trip.nights}
 
           edit={this.state.editName}
           editedText={this.state.editedNameText}

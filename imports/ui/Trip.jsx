@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import { I18n } from 'react-i18nify';
 import ClipboardButton from '../ui/ClipboardButton.jsx';
 const Trip = (props) => {
   let tripHeader = null
@@ -20,7 +21,9 @@ const Trip = (props) => {
   } else {
     tripHeader = (
         <div className="trip-header">
-          <span onClick={props.onNameClick}>{props.tripName}</span>
+          <span onClick={props.onNameClick}>
+            {props.tripName} ({I18n.t('trips.days')} {props.days} / {I18n.t('trips.nights')} {props.nights}) 
+          </span>
           <ClipboardButton tripId={props.tripId} />
         </div>
       )
@@ -37,6 +40,8 @@ const Trip = (props) => {
 Trip.propTypes = {
   tripId: PropTypes.string.isRequired,
   tripName: PropTypes.string.isRequired,
+  days: PropTypes.number,
+  nights: PropTypes.number,
   edit: PropTypes.bool.isRequired,
   editedText: PropTypes.string,
   onNameClick: PropTypes.func.isRequired,

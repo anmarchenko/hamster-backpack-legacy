@@ -28,7 +28,7 @@ RUN apt-get install curl -y \
 
   # Build the Meteor app
   && cd /home/app \
-  && meteor build ./build --directory \
+  && meteor build ./build --directory --allow-superuser \
 
   # Build the NPM packages needed for server (really?)
   && cd /home/app/build/bundle/programs/server \

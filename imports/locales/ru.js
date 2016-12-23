@@ -77,6 +77,8 @@ const RU_LOCALE = {
   },
   trips: {
     header: 'Мои планы',
+    days: 'Дней',
+    nights: 'Ночей',
     new_trip: 'Новый план',
     no_trips: 'Ни одного плана ещё не добавлено'
   }
