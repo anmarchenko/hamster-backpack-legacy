@@ -1,3 +1,21 @@
-# hamsters-backpack
+Hamster's Backpack
+==============
 
-Small web application to simplify my travel packing. Tryout for React and Meteor.
+Small todo list app specifically for travel packing
+
+<img src="http://amarchenko.de/img/posts/backpack.png" alt="screen" width="500"/>
+
+## Current techonological stack
+
+* Meteor 1.4
+* React 15.4
+* Mongo
+* Docker 1.13
+
+## TODO
+
+* [ ] Maze layout for lists
+* [ ] Lists reorder
+* [ ] List progress
+* [ ] User-defined templates
+* [ ] Upload template as JSON
