@@ -5,7 +5,7 @@ Small todo list app specifically for travel packing
 
 <img src="http://amarchenko.de/img/posts/backpack.png" alt="screen" width="500"/>
 
-## Current techonological stack
+## Current tech stack
 
 * Meteor 1.4
 * React 15.4
