@@ -1,4 +1,7 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Scroll from 'react-scroll';
+
 import NewList from '../ui/NewList.jsx';
 
 class NewListContainer extends Component {
@@ -37,6 +40,9 @@ class NewListContainer extends Component {
     }
     Meteor.call('lists.create', this.props.tripId, this.state.newListText);
     this.finishEdit();
+    setTimeout(() => {
+      Scroll.animateScroll.scrollToBottom();
+    }, 100)
   }
 
   finishEdit() {

@@ -1,6 +1,7 @@
-import React, {Component, PropTypes} from 'react';
-import {createContainer} from 'meteor/react-meteor-data';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { createContainer } from 'meteor/react-meteor-data';
+import { CSSTransitionGroup } from 'react-transition-group'
 
 import List from '../ui/List.jsx';
 import ItemContainer from './ItemContainer.jsx';
@@ -34,13 +35,13 @@ class ListContainer extends Component {
 
   renderItems() {
     return (
-      <ReactCSSTransitionGroup transitionName="item" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+      <CSSTransitionGroup transitionName="item" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
         {this.props.items.map(function(item) {
           return (
-              <ItemContainer key={item._id} item={item}/>
+            <ItemContainer key={item._id} item={item}/>
           )
         })}
-      </ReactCSSTransitionGroup>
+      </CSSTransitionGroup>
     )
   }
 
@@ -64,7 +65,6 @@ class ListContainer extends Component {
   }
 
   toggleCollapsed() {
-    console.log('called')
     Meteor.call('lists.updateCollapsed', this.props.list._id, !this.props.list.collapsed);
   }
 

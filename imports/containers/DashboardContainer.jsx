@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { I18n } from 'react-i18nify';
 
@@ -54,7 +55,7 @@ DashboardContainer.propTypes = {
 };
 
 DashboardContainer.contextTypes = {
-  router: React.PropTypes.object.isRequired
+  router: PropTypes.object.isRequired
 };
 
 export default DashboardContainer;

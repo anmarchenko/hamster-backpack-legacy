@@ -1,4 +1,6 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
+
 import {I18n, Translate} from 'react-i18nify';
 
 const NewList = (props) => {

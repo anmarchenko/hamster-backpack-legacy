@@ -1,5 +1,7 @@
-import React, {PropTypes} from 'react';
-import {I18n} from 'react-i18nify'
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import { I18n } from 'react-i18nify'
 
 const NewItem = (props) => (
   <li className="tasks-item new-item">

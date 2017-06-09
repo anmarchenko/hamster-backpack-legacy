@@ -1,12 +1,15 @@
-import React, {Component, PropTypes} from 'react';
-import {createContainer} from 'meteor/react-meteor-data';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import {I18n} from 'react-i18nify';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+import { createContainer } from 'meteor/react-meteor-data';
+import { I18n } from 'react-i18nify';
+
+import Masonry from 'react-masonry-component';
 
 import Trip from '../ui/Trip.jsx';
 import ListContainer from './ListContainer.jsx';
 import NewListContainer from './NewListContainer.jsx';
-import NavbarContainer from '../containers/NavbarContainer.jsx'
+import NavbarContainer from '../containers/NavbarContainer.jsx';
 
 import {Trips, Lists} from '../api/collections.js';
 
@@ -64,16 +67,14 @@ class TripContainer extends Component {
 
   renderLists() {
     return (
-      <div className="tasks-area">
-        <ReactCSSTransitionGroup transitionName="list" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-          {this.props.lists.map(function(list) {
-              return (
-                  <ListContainer key={list._id} list={list}/>
-              )
-            })
-          }
-        </ReactCSSTransitionGroup>
-      </div>
+      <Masonry className="tasks-area" enableResizableChildren={true}>
+        {this.props.lists.map(function(list) {
+            return (
+              <ListContainer key={list._id} list={list}/>
+            )
+          })
+        }
+      </Masonry>
     )
   }
 
@@ -110,7 +111,7 @@ TripContainer.propTypes = {
 };
 
 TripContainer.contextTypes = {
-  router: React.PropTypes.object.isRequired
+  router: PropTypes.object.isRequired
 };
 
 export default createContainer(({params}) => {

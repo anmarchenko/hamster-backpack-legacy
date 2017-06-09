@@ -1,4 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import { I18n } from 'react-i18nify';
 
 import TripForm from '../ui/TripForm.jsx';
@@ -77,5 +79,5 @@ TripFormContainer.propTypes = {
 };
 
 TripFormContainer.contextTypes = {
-  router: React.PropTypes.object.isRequired
+  router: PropTypes.object.isRequired
 };

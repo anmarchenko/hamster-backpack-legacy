@@ -1,6 +1,8 @@
-import React, {Component, PropTypes} from 'react';
-import {createContainer} from 'meteor/react-meteor-data';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+import { createContainer } from 'meteor/react-meteor-data';
+import { CSSTransitionGroup } from 'react-transition-group'
 
 import { I18n, Translate } from 'react-i18nify';
 
@@ -24,7 +26,7 @@ class TripListContainer extends Component {
   renderTrips() {
     if (this.props.trips.length > 0) {
       return (
-          <ReactCSSTransitionGroup transitionName="trip" transitionEnterTimeout={500} transitionLeaveTimeout={500} className="trips">
+          <CSSTransitionGroup transitionName="trip" transitionEnterTimeout={500} transitionLeaveTimeout={500} className="trips">
             {this.props.trips.map(function(trip){
               return (
                 <div key={trip._id} className="trip-link">
@@ -36,7 +38,7 @@ class TripListContainer extends Component {
                 </div>
               )
             }.bind(this))}
-        </ReactCSSTransitionGroup>
+        </CSSTransitionGroup>
       )
     } else {
       return (

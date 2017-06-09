@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import {Translate} from 'react-i18nify'
 
@@ -37,7 +38,7 @@ const Navbar = (props) => {
       <div className="container">
         <ul className="navbar-list">
           <li className="navbar-item">
-            <a className="navbar-link hidden-xs" href={`/${props.locale}`}>Hamster's Backpack</a>
+            <a className="navbar-link hidden-xs" href={`/${props.locale}`}>Hamster&apos;s Backpack</a>
             <a className="navbar-link shown-xs" href={`/${props.locale}`}>HB</a>
           </li>
         </ul>

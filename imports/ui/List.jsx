@@ -1,5 +1,7 @@
-import React, {PropTypes} from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { CSSTransitionGroup } from 'react-transition-group'
+import Draggable from 'react-draggable';
 
 import ListHeader from './ListHeader';
 import ListEditHeader from './ListEditHeader';
@@ -16,6 +18,7 @@ const ListContent = (p) => {
 }
 
 const List = (props) => (
+  <Draggable>
   <div className="tasks-list">
     {props.edit
       ? (<ListEditHeader editNameText={props.editNameText} changeCallback={props.changeValue}
@@ -26,10 +29,11 @@ const List = (props) => (
       : (<ListHeader name={props.name} clickDelete={props.clickDelete} startEdit={props.startEdit}
                      toggleCollapsed={props.toggleCollapsed} collapsed={props.collapsed} done={props.done} />)
      }
-     <ReactCSSTransitionGroup transitionName="collapse" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+     <CSSTransitionGroup transitionName="collapse" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
        {ListContent(props)}
-     </ReactCSSTransitionGroup>
+     </CSSTransitionGroup>
   </div>
+  </Draggable>
 )
 
 List.propTypes = {
