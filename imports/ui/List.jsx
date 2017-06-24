@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CSSTransitionGroup } from 'react-transition-group'
-import Draggable from 'react-draggable';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 import ListHeader from './ListHeader';
 import ListEditHeader from './ListEditHeader';
@@ -18,7 +17,6 @@ const ListContent = (p) => {
 }
 
 const List = (props) => (
-  <Draggable>
   <div className="tasks-list">
     {props.edit
       ? (<ListEditHeader editNameText={props.editNameText} changeCallback={props.changeValue}
@@ -27,13 +25,15 @@ const List = (props) => (
             cancelEdit={props.cancelEdit}
         />)
       : (<ListHeader name={props.name} clickDelete={props.clickDelete} startEdit={props.startEdit}
-                     toggleCollapsed={props.toggleCollapsed} collapsed={props.collapsed} done={props.done} />)
+                     toggleCollapsed={props.toggleCollapsed} collapsed={props.collapsed} done={props.done}
+                     progress={props.progress}
+          />)
      }
+     <div className="progress-bar" style={{width: `${props.progress}%`}} />
      <CSSTransitionGroup transitionName="collapse" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
        {ListContent(props)}
      </CSSTransitionGroup>
   </div>
-  </Draggable>
 )
 
 List.propTypes = {
@@ -49,7 +49,8 @@ List.propTypes = {
   children: PropTypes.array,
   collapsed: PropTypes.bool.isRequired,
   toggleCollapsed: PropTypes.func.isRequired,
-  done: PropTypes.bool.isRequired
+  done: PropTypes.bool.isRequired,
+  progress: PropTypes.number.isRequired
 };
 
 export default List;

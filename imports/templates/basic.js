@@ -93,10 +93,6 @@ const BasicTemplate = [
         count: 1
       },
       {
-        label: 'cap',
-        count: 1
-      },
-      {
         label: 'shorts',
         count: 1
       },

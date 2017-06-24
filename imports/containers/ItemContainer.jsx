@@ -51,7 +51,7 @@ class ItemContainer extends Component {
     this.setState({editedText: event.target.value});
   }
 
-  render() {
+  renderItemContent() {
     if (this.state.edit) {
       return (<ItemEdit text={this.state.editedText}
                         onFinish={this.saveItem.bind(this)}
@@ -66,6 +66,12 @@ class ItemContainer extends Component {
                     onClickDelete={this.deleteItem.bind(this)}
                     onClickText={this.editItem.bind(this)} />)
     }
+  }
+
+  render() {
+    return (<li className={`tasks-item ${this.props.item.checked ? "checked" : ""} ${this.state.edit ? "edit-item" : ""}`}>
+      {this.renderItemContent()}
+    </li>);
   }
 }
 

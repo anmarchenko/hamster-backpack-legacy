@@ -5,13 +5,28 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { I18n } from 'react-i18nify';
 
 import Masonry from 'react-masonry-component';
+import { SortableContainer, SortableElement, arrayMove } from 'react-sortable-hoc';
 
 import Trip from '../ui/Trip.jsx';
 import ListContainer from './ListContainer.jsx';
 import NewListContainer from './NewListContainer.jsx';
 import NavbarContainer from '../containers/NavbarContainer.jsx';
 
-import {Trips, Lists} from '../api/collections.js';
+import { Trips, Lists } from '../api/collections.js';
+
+const SortableList = SortableElement(({item}) =>
+  <ListContainer list={item} />
+);
+
+const SortableTrip = SortableContainer(({items}) => {
+  return (
+    <Masonry className="tasks-area" enableResizableChildren={true}>
+      {items.map((item, index) => (
+        <SortableList key={item._id} item={item} index={index} />
+      ))}
+    </Masonry>
+  );
+});
 
 class TripContainer extends Component {
   constructor(props) {
@@ -20,6 +35,14 @@ class TripContainer extends Component {
       editName: false,
       editedNameText: ''
     };
+    this.onSortEnd = this.onSortEnd.bind(this);
+  }
+
+  onSortEnd({ oldIndex, newIndex }) {
+    Meteor.call(
+      'lists.reorder',
+      arrayMove(this.props.lists, oldIndex, newIndex)
+    );
   }
 
   componentWillMount() {
@@ -67,18 +90,14 @@ class TripContainer extends Component {
 
   renderLists() {
     return (
-      <Masonry className="tasks-area" enableResizableChildren={true}>
-        {this.props.lists.map(function(list) {
-            return (
-              <ListContainer key={list._id} list={list}/>
-            )
-          })
-        }
-      </Masonry>
+      <SortableTrip items={this.props.lists} onSortEnd={this.onSortEnd} axis="xy" pressDelay={100} />
     )
   }
 
   render() {
+    if (!this.props.trip) {
+      return (<div></div>)
+    }
     return (
       <span>
         <NavbarContainer routeParams={this.props.routeParams} location={this.props.location} />
@@ -119,7 +138,7 @@ export default createContainer(({params}) => {
   Meteor.subscribe('lists.by_trip_id', params.trip_id);
   Meteor.subscribe('items.by_trip_id', params.trip_id);
   return {
-    trip: Trips.findOne(params.trip_id) || {},
-    lists: Lists.find().fetch()
+    trip: Trips.findOne(params.trip_id),
+    lists: Lists.find({}, { sort: { position: 1 } }).fetch()
   };
 }, TripContainer);

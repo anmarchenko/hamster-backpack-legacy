@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ItemEdit = (props) => (
-  <li className='tasks-item edit-item'>
+  <span>
     <div className="item-check">
       <input type="checkbox" disabled="disabled"/>
     </div>
@@ -15,7 +15,7 @@ const ItemEdit = (props) => (
     <div className="item-delete">
       <img src="/images/cross.svg"></img>
     </div>
-  </li>
+  </span>
 );
 
 ItemEdit.propTypes = {

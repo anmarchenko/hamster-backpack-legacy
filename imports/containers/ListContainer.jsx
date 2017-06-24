@@ -1,15 +1,41 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { createContainer } from 'meteor/react-meteor-data';
-import { CSSTransitionGroup } from 'react-transition-group'
+import { CSSTransitionGroup } from 'react-transition-group';
+
+import { I18n } from 'react-i18nify';
+import SweetAlert from 'sweetalert2';
+
+import { SortableContainer, SortableElement, arrayMove } from 'react-sortable-hoc';
 
 import List from '../ui/List.jsx';
 import ItemContainer from './ItemContainer.jsx';
 import NewItemContainer from './NewItemContainer.jsx';
 
-import {Items} from '../api/collections.js';
-import {I18n} from 'react-i18nify'
-import SweetAlert from 'sweetalert2';
+import { Items } from '../api/collections.js';
+
+const SortableItem = SortableElement(({item}) =>
+  <ItemContainer item={item} />
+);
+
+const SortableList = SortableContainer(({items}) => {
+  return (
+    <CSSTransitionGroup transitionName="item" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+      {items.map((item, index) => (
+        <SortableItem key={item._id} item={item} index={index} />
+      ))}
+    </CSSTransitionGroup>
+  );
+});
+
+const progress = (items) => {
+  const count = items.length;
+  if (count == 0) {
+    return 0;
+  }
+  const checkedCount = items.filter((item) => item.checked).length;
+  return (checkedCount * 100.0) / count;
+}
 
 class ListContainer extends Component {
   constructor(props) {
@@ -18,6 +44,14 @@ class ListContainer extends Component {
       edit: false,
       editNameText: ''
     };
+    this.onSortEnd = this.onSortEnd.bind(this);
+  }
+
+  onSortEnd({ oldIndex, newIndex }) {
+    Meteor.call(
+      'items.reorder',
+      arrayMove(this.props.items, oldIndex, newIndex)
+    );
   }
 
   deleteList() {
@@ -35,13 +69,7 @@ class ListContainer extends Component {
 
   renderItems() {
     return (
-      <CSSTransitionGroup transitionName="item" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-        {this.props.items.map(function(item) {
-          return (
-            <ItemContainer key={item._id} item={item}/>
-          )
-        })}
-      </CSSTransitionGroup>
+      <SortableList items={this.props.items} onSortEnd={this.onSortEnd} lockAxis="y" pressDelay={300} />
     )
   }
 
@@ -99,6 +127,7 @@ class ListContainer extends Component {
         collapsed={this.props.list.collapsed || false}
         toggleCollapsed={this.toggleCollapsed.bind(this)}
         done={this.listDone()}
+        progress={progress(this.props.items)}
       >
         {this.renderItems()}
         <NewItemContainer listId={this.props.list._id} tripId={this.props.list.trip_id} />
@@ -114,6 +143,6 @@ ListContainer.propTypes = {
 
 export default createContainer((props) => {
   return {
-    items: Items.find({list_id: props.list._id}).fetch()
+    items: Items.find({list_id: props.list._id}, { sort: { position: 1 } }).fetch()
   };
 }, ListContainer);

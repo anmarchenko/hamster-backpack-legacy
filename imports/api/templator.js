@@ -17,24 +17,30 @@ const Templator = {
       template = HamsterTemplate;
     }
 
-    for (let list of template) {
+    for (let listIndex = 0; listIndex < template.length; listIndex++) {
+      const list = template[listIndex];
       const listId = Lists.insert({
         trip_id: tripId,
-        name: hamster ? list.label : I18n.t(`templates.lists.${list.label}`)
+        name: hamster ? list.label : I18n.t(`templates.lists.${list.label}`),
+        position: listIndex
       });
-      for (let item of list.items) {
+      for (let index = 0; index < list.items.length; index++) {
+        let item = list.items[index];
         let count = item.count;
+
         if (isString(count)) {
           count = count.replace('[days]', days);
           count = count.replace('[nights]', nights);
           count = math.floor(math.eval(count));
         }
+
         Items.insert({
           trip_id: tripId,
           list_id: listId,
           checked: false,
           count: count,
-          name: hamster ? item.label :  I18n.t(`templates.items.${item.label}`)
+          name: hamster ? item.label :  I18n.t(`templates.items.${item.label}`),
+          position: index
         });
       }
     }
